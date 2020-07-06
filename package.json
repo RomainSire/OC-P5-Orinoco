@@ -4,13 +4,17 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css",
+    "sassCompressed": "sass --watch ./sass/main.scss:./public/css/style.css --style compressed"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.8",
     "body-parser": "^1.18.3",
+    "bootstrap": "^4.5.0",
+    "bootstrap-icons": "^1.0.0-alpha5",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.8",
