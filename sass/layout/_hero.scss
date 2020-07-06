@@ -1,0 +1,45 @@
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/hero-bg.jpg");
+    height: 85vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 5rem;
+
+    &--content {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $bg-color;
+    }
+
+    &--btn {
+        margin-top: 2rem;
+    }
+
+    &--arrow-down {
+        // position
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 100%);
+        // size
+        $size: 25px;
+        width: $size * 2;
+        height: $size;
+        // center content
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // coloring & shape
+        background: $bg-color;
+        border: 1px solid $txt-color;
+        border-top: none;
+        border-bottom-left-radius: $size * 2;
+        border-bottom-right-radius: $size * 2;
+        box-shadow: 0 4px 4px -4px $txt-color; 
+    }
+}

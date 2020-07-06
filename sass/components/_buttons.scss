@@ -1,0 +1,9 @@
+.btn {
+    display: inline-block;
+    background: $bg-color;
+    border-radius: 1.5em;
+    padding: 0.5rem 1.5rem;
+    margin-top: 2rem;
+    color: $txt-color;
+    @include zoomOnHover;
+}

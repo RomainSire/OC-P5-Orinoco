@@ -1,5 +1,10 @@
 // Bootstrap
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+// @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 // Custom
-@import "./layout/header"
+@import "./utils/variables";
+@import "./utils/mixins";
+@import "./base/general";
+@import "./components/buttons";
+@import "./layout/header";
+@import "./layout/hero";
