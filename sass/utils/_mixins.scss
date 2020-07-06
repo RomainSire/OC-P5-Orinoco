@@ -1,7 +1,7 @@
 // zoom au hover
-@mixin zoomOnHover {
+@mixin zoomOnHover($size: 1.05) {
     transition: transform 300ms;
     &:hover {
-        transform: scale(1.05);
+        transform: scale($size);
     }
 }
