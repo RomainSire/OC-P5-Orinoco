@@ -132,11 +132,10 @@ label {
   justify-content: center;
   align-items: center;
   background: #eee;
-  border: 1px solid #464646;
   border-top: none;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
-  box-shadow: 0 4px 4px -4px #464646;
+  box-shadow: 0 4px 3px -3px #464646;
 }
 
 .products-list--wrapper {
@@ -144,9 +143,13 @@ label {
   flex-flow: row wrap;
   justify-content: space-between;
 }
+.products-list--wrapper > a {
+  display: block;
+  margin: auto;
+}
 .products-list--card {
-  width: 500px;
-  margin: 20px 0;
+  max-width: 500px;
+  margin: 20px 10px;
   overflow: hidden;
   border-radius: 5px;
   box-shadow: 0 0 10px #5558;
@@ -156,7 +159,7 @@ label {
   transform: scale(1.01);
 }
 .products-list--card:hover .products-list--link {
-  text-decoration: underline;
+  color: #cc8b40;
 }
 .products-list--image {
   width: 100%;
@@ -173,6 +176,63 @@ label {
 .products-list--price {
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+.footer {
+  background: #bbb;
+  margin-top: 6rem;
+  padding: 20px 0;
+  font-size: 1.1rem;
+  text-align: center;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .footer--wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.footer--social svg {
+  height: 30px;
+  width: 30px;
+}
+.footer div a {
+  display: inline-block;
+  padding: 1em;
+  transition: transform 300ms;
+}
+.footer div a:hover {
+  transform: scale(1.05);
+}
+@media screen and (min-width: 768px) {
+  .footer--legal {
+    text-align: left;
+    width: 25%;
+    order: -1;
+  }
+}
+@media screen and (min-width: 768px) {
+  .footer--contact {
+    text-align: right;
+    width: 25%;
+  }
+}
+.footer--arrow-up {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -100%);
+  width: 50px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #bbb;
+  border-bottom: none;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */

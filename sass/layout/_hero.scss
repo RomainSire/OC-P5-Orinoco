@@ -27,19 +27,17 @@
         bottom: 0;
         transform: translate(-50%, 100%);
         // size
-        $size: 25px;
-        width: $size * 2;
-        height: $size;
+        width: $page-up-size * 2;
+        height: $page-up-size;
         // center content
         display: flex;
         justify-content: center;
         align-items: center;
         // coloring & shape
         background: $bg-color;
-        border: 1px solid $txt-color;
         border-top: none;
-        border-bottom-left-radius: $size * 2;
-        border-bottom-right-radius: $size * 2;
-        box-shadow: 0 4px 4px -4px $txt-color; 
+        border-bottom-left-radius: $page-up-size * 2;
+        border-bottom-right-radius: $page-up-size * 2;
+        box-shadow: 0 4px 3px -3px $txt-color; 
     }
 }

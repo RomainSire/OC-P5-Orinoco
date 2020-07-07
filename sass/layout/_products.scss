@@ -1,21 +1,23 @@
 .products-list {
-    
-
     &--wrapper {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
+        > a {
+            display: block;
+            margin: auto;
+        }
     }
     &--card {
-        width: 500px;
-        margin: 20px 0;
+        max-width: 500px;
+        margin: 20px 10px;
         overflow: hidden;
         border-radius: 5px;
         box-shadow: 0 0 10px #5558;
         @include zoomOnHover(1.01);
         &:hover {
             .products-list--link {
-                text-decoration: underline;
+                color: #cc8b40;
             }
         }
     }
@@ -35,5 +37,4 @@
         font-weight: bold;
         font-size: 1.2rem;
     }
-    
 }
