@@ -17,7 +17,7 @@
         @include zoomOnHover(1.01);
         &:hover {
             .products-list--link {
-                color: #cc8b40;
+                color: $emphasis-color;
             }
         }
     }

@@ -64,6 +64,10 @@ label {
   padding: 0 1rem;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .btn {
   display: inline-block;
   background: #eee;
@@ -95,10 +99,24 @@ label {
 }
 .header--cart {
   width: 40px;
+  position: relative;
   transition: transform 300ms;
 }
 .header--cart:hover {
   transform: scale(1.05);
+}
+.header--cart--counter {
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #cc8b40;
+  font-weight: 700;
 }
 
 .hero {
