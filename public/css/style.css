@@ -161,13 +161,10 @@ label {
   flex-flow: row wrap;
   justify-content: space-between;
 }
-.products-list--wrapper > a {
-  display: block;
-  margin: auto;
-}
 .products-list--card {
+  display: block;
   max-width: 500px;
-  margin: 20px 10px;
+  margin: 20px auto;
   overflow: hidden;
   border-radius: 5px;
   box-shadow: 0 0 10px #5558;
