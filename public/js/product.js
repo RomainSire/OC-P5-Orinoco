@@ -6,10 +6,15 @@ const id = url.searchParams.get("id");
 
 if (/^([a-z]|[0-9]){24}$/m.test(id)) {
     // Produit existe (= id correspond à ce qui est attendu)
-    console.log("Id du produit : " + id);
+    console.log(id);
+    const request = new Request();
+    request.getJson("/api/cameras/" + id)
+        .then(camera => {
+            console.log(camera);
+        })
 } else {
     // Produit inexistant
-    console.log("404 : Article introuvable"); 
+    console.log("404 : Produit introuvable"); 
 }
 
 

@@ -33,7 +33,7 @@
 </head>
 <body>
     <!-- HEADER -->
-    <header class="header">
+    <header class="header" id="header">
         <div class="container header--wrapper">
             <a href="/">
                 <img src="/img/logo.svg" class="header--logo" alt="Logo de Oricam" aria-label="Accéder à la page d'accueil">
@@ -47,12 +47,37 @@
         </div>
     </header>
     <!-- PRODUCT -->
-    <section class="product container" id="product">
-        <h1>Détail du produit</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quae, nemo sint aut soluta nam assumenda modi consectetur iste sed vero veritatis libero id hic enim earum dolore atque quam.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quae, nemo sint aut soluta nam assumenda modi consectetur iste sed vero veritatis libero id hic enim earum dolore atque quam.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quae, nemo sint aut soluta nam assumenda modi consectetur iste sed vero veritatis libero id hic enim earum dolore atque quam.</p>
-    </section>
+    <div class="container">
+        <section class="product" id="product">
+            <img class="product--image" src="/test/vcam_2.jpg" alt="appareil photo vintage">
+            <div class="container">
+                <h1 class="product--title">Hirsch 400DTS</h1>
+                <p class="product--description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quae, nemo sint aut soluta nam assumenda modi consectetur iste sed vero veritatis libero id hic enim earum dolore atque quam.</p>
+                <p class="product--price">309 €</p>
+                <form class="product--form">
+                    <fieldset>
+                        <label for="lense">Objectif</label>
+                        <select name="lense" id="lense">
+                            <option value="#">50mm 1.8</option>
+                            <option value="#">60mm 2.8</option>
+                            <option value="#">24-60mm 2.8/4.5</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <label for="quantity">Quantité</label>
+                        <input type="number" name="quantity" id="quantity" min="1" max="10">
+                    </fieldset>
+                    <input type="hidden" name="id" value="5be1ef211c9d44000030b062">
+                    <div class="product--form--buttons">
+                        <button class="btn btn-cart">Ajouter au panier</button>
+                        <a class="btn btn-back" href="/">Retour à l'accueil</a>
+                    </div >
+                    
+                </form> 
+            </div>
+        </section>
+    </div>
+    
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container footer--wrapper">
@@ -78,7 +103,7 @@
                 <a href="#">Contact</a>
             </div>
         </div>
-        <a href="#products-list" class="footer--arrow-up">
+        <a href="#header" class="footer--arrow-up">
             <img src="/img/icons/caret-up.svg" alt="Voir la liste des produits" aria-label="Voir la liste des produits">
         </a>
     </footer>

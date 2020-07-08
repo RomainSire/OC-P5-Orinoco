@@ -75,6 +75,7 @@ label {
   padding: 0.5rem 1.5rem;
   margin-top: 2rem;
   color: #464646;
+  cursor: pointer;
   transition: transform 300ms;
 }
 .btn:hover {
@@ -210,6 +211,82 @@ label {
   font-size: 1.2rem;
 }
 
+.product {
+  margin: 3rem auto;
+  max-width: 750px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #5558;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.product--image {
+  width: 100%;
+}
+.product--title {
+  margin: 1rem 0;
+}
+.product--description {
+  text-align: justify;
+  margin: 1rem 0;
+}
+.product--price {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+.product--form {
+  margin: 1rem 0;
+}
+.product--form fieldset {
+  display: flex;
+  flex-flow: row nowrap;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+.product--form label {
+  background: #eee;
+  border-right: 1px solid #bbb;
+  width: 130px;
+  height: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product--form select,
+.product--form input {
+  background: #fff;
+  border: none;
+  padding: 0 1rem;
+  width: 100%;
+}
+.product--form--buttons {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 600px) {
+  .product--form--buttons {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+.product--form--buttons .btn {
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  padding: 0.8rem 1.5rem;
+  margin-top: 1em;
+}
+.product--form--buttons .btn.btn-cart {
+  background-color: #F0F4C3;
+}
+@media screen and (min-width: 600px) {
+  .product--form--buttons .btn.btn-back {
+    order: -1;
+  }
+}
+
 .footer {
   background: #bbb;
   margin-top: 6rem;
@@ -218,7 +295,7 @@ label {
   text-align: center;
   position: relative;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
   .footer--wrapper {
     display: flex;
     flex-direction: row;
@@ -238,14 +315,14 @@ label {
 .footer div a:hover {
   transform: scale(1.05);
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
   .footer--legal {
     text-align: left;
     width: 25%;
     order: -1;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
   .footer--contact {
     text-align: right;
     width: 25%;
