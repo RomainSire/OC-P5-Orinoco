@@ -83,6 +83,7 @@ label {
 
 .header {
   padding: 10px 0;
+  background: #bbb;
 }
 .header--wrapper {
   display: flex;
@@ -162,6 +163,7 @@ label {
   justify-content: space-between;
 }
 .products-list--card {
+  background: #fff;
   display: block;
   max-width: 500px;
   margin: 20px auto;
@@ -191,6 +193,11 @@ label {
 .products-list--price {
   font-weight: bold;
   font-size: 1.2rem;
+}
+.products-list--error {
+  max-width: 650px;
+  display: block;
+  margin: auto;
 }
 
 .footer {
