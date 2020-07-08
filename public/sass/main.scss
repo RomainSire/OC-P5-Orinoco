@@ -1,0 +1,14 @@
+// Bootstrap
+// @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Custom
+@import "./utils/variables";
+@import "./utils/mixins";
+@import "./base/general";
+@import "./base/utilitary-class";
+@import "./components/buttons";
+@import "./components/error";
+@import "./layout/header";
+@import "./layout/hero";
+@import "./layout/products";
+@import "./layout/footer";

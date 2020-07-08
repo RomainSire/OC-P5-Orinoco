@@ -1,0 +1,270 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+  background: #eee;
+  color: #464646;
+  font-family: "Roboto", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: "Federo", sans-serif;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+  padding: 20px 0;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+label {
+  display: inline-block;
+}
+
+.container {
+  max-width: 1110px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.btn {
+  display: inline-block;
+  background: #eee;
+  border-radius: 1.5em;
+  padding: 0.5rem 1.5rem;
+  margin-top: 2rem;
+  color: #464646;
+  transition: transform 300ms;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.error {
+  max-width: 650px;
+  margin: auto;
+}
+.error img {
+  width: 100%;
+}
+.error p {
+  color: #cc8b40;
+  font-family: "Federo", sans-serif;
+  font-size: 3rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.header {
+  padding: 10px 0;
+  background: #bbb;
+}
+.header--wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.header--logo {
+  width: 200px;
+  transition: transform 300ms;
+}
+.header--logo:hover {
+  transform: scale(1.05);
+}
+.header--cart {
+  width: 40px;
+  position: relative;
+  transition: transform 300ms;
+}
+.header--cart:hover {
+  transform: scale(1.05);
+}
+.header--cart--counter {
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #cc8b40;
+  font-weight: 700;
+}
+
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/hero-bg.jpg");
+  height: 85vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 6rem;
+}
+.hero--content {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #eee;
+}
+.hero--btn {
+  margin-top: 2rem;
+}
+.hero--arrow-down {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 100%);
+  width: 50px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+  border-top: none;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  box-shadow: 0 4px 3px -3px #464646;
+}
+
+.products-list--wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.products-list--card {
+  background: #fff;
+  display: block;
+  max-width: 500px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #5558;
+  transition: transform 300ms;
+}
+.products-list--card:hover {
+  transform: scale(1.01);
+}
+.products-list--card:hover .products-list--link {
+  color: #cc8b40;
+}
+.products-list--image {
+  width: 100%;
+}
+.products-list--content {
+  padding: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.products-list--content h3 {
+  width: 100%;
+}
+.products-list--price {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.footer {
+  background: #bbb;
+  margin-top: 6rem;
+  padding: 20px 0;
+  font-size: 1.1rem;
+  text-align: center;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .footer--wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.footer--social svg {
+  height: 30px;
+  width: 30px;
+}
+.footer div a {
+  display: inline-block;
+  padding: 1em;
+  transition: transform 300ms;
+}
+.footer div a:hover {
+  transform: scale(1.05);
+}
+@media screen and (min-width: 768px) {
+  .footer--legal {
+    text-align: left;
+    width: 25%;
+    order: -1;
+  }
+}
+@media screen and (min-width: 768px) {
+  .footer--contact {
+    text-align: right;
+    width: 25%;
+  }
+}
+.footer--arrow-up {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -100%);
+  width: 50px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #bbb;
+  border-bottom: none;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+/*# sourceMappingURL=style.css.map */

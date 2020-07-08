@@ -1,0 +1,38 @@
+.products-list {
+    &--wrapper {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+    &--card {
+        background: $card-color;
+        display: block;
+        max-width: 500px;
+        margin: 20px auto;
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #5558;
+        @include zoomOnHover(1.01);
+        &:hover {
+            .products-list--link {
+                color: $emphasis-color;
+            }
+        }
+    }
+    &--image {
+        width: 100%;
+    }
+    &--content {
+        padding: 1rem;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        h3 {
+            width: 100%;
+        }
+    }
+    &--price {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+}

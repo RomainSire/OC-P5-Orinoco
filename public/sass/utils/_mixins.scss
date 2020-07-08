@@ -1,0 +1,15 @@
+// zoom au hover
+@mixin zoomOnHover($size: 1.05) {
+    transition: transform 300ms;
+    &:hover {
+        transform: scale($size);
+    }
+}
+
+
+// RESPONSIVE pour les desktops
+@mixin desktop-only {
+    @media screen and (min-width: 768px){
+        @content;
+    }
+  }
