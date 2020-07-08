@@ -81,6 +81,21 @@ label {
   transform: scale(1.05);
 }
 
+.error {
+  max-width: 650px;
+  margin: auto;
+}
+.error img {
+  width: 100%;
+}
+.error p {
+  color: #cc8b40;
+  font-family: "Federo", sans-serif;
+  font-size: 3rem;
+  font-style: italic;
+  text-align: center;
+}
+
 .header {
   padding: 10px 0;
   background: #bbb;
@@ -193,11 +208,6 @@ label {
 .products-list--price {
   font-weight: bold;
   font-size: 1.2rem;
-}
-.products-list--error {
-  max-width: 650px;
-  display: block;
-  margin: auto;
 }
 
 .footer {
