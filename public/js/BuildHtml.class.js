@@ -151,4 +151,14 @@ class BuildHtml {
         targetDiv.appendChild(image);
         targetDiv.appendChild(container);
     }
+
+    changeHeadMetas(title, description, socialUrl, socialImage) {
+        document.title = title;
+        document.querySelector('meta[name="description"]').setAttribute("content", description);
+        document.querySelector('meta[name="twitter:card"]').setAttribute("content", description);
+        document.querySelector('meta[property="og:title"]').setAttribute("content", title);
+        document.querySelector('meta[property="og:url"]').setAttribute("content", socialUrl);
+        document.querySelector('meta[property="og:image"]').setAttribute("content", socialImage);
+        document.querySelector('meta[property="og:description"]').setAttribute("content", description);
+    }
 }

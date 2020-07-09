@@ -3,6 +3,7 @@ const url_string = window.location.href;
 const url = new URL(url_string);
 const id = url.searchParams.get("id");
 
+
 // Récupération de la liste des Id existantes
 const request = new Request();
 request.getJson("/api/cameras/")
@@ -16,9 +17,17 @@ request.getJson("/api/cameras/")
             // Produit existe
             request.getJson("/api/cameras/" + id)
                 .then(camera => {
+                    // Afficher le produit
                     let targetDiv = document.getElementById('product');
                     const build = new BuildHtml();
                     build.productDescription(camera, targetDiv);
+                    // Changer titre, description & meta sociaux de la page :
+                    build.changeHeadMetas(
+                        camera.name + " - Le meilleur de la photo vintage : Oricam",
+                        "Découvrez l'appareil photo vintage " + camera.name + ", spécialement pensé pour les passionnés des négatifs argentiques et de la chambre noire.",
+                        url_string,
+                        camera.imageUrl
+                        )
                 })
         } else {
             // Produit inexistant        
@@ -30,10 +39,3 @@ request.getJson("/api/cameras/")
         
         
     })
-
-
-
-
-
-// TODO:
-// Penser à changer le titre de la page & description + social
