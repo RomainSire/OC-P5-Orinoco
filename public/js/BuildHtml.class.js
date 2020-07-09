@@ -61,4 +61,94 @@ class BuildHtml {
         div.appendChild(msg);
         return div;
     }
+
+    /**
+     * Génère le html de la page produit
+     * @param {Object} camera       Objet contenant toutes les infos d'une caméra en particulier
+     * @param {Element} targetDiv   Element cible dans lequel les infos du produit seront intégrées
+     */
+    productDescription(camera, targetDiv) {
+        // Create image
+        let image = document.createElement("img");
+        image.classList.add("product--image");
+        image.setAttribute("src", camera.imageUrl);
+        image.setAttribute("alt", "Photo de : " + camera.name);
+        // Create title, description, and price
+        let title = document.createElement("h1");
+        title.classList.add("product--title");
+        title.textContent = camera.name;
+        let description = document.createElement("p");
+        description.classList.add("product--description");
+        description.textContent = camera.description;
+        let price = document.createElement("p");
+        price.classList.add("product--price");
+        price.textContent = (camera.price / 100) + " €";
+        // Create form
+            // Lense
+        let lenseLabel = document.createElement("label");
+        lenseLabel.setAttribute("for", "lense");
+        lenseLabel.textContent = "Objectif";
+        let lenseSelect = document.createElement("select");
+        lenseSelect.setAttribute("name", "lense");
+        lenseSelect.setAttribute("id", "lense");
+        for (const i in camera.lenses) {
+            let option = document.createElement("option");
+            option.setAttribute("value", i);
+            option.textContent = camera.lenses[i];
+            lenseSelect.appendChild(option);
+        }
+        let lenseFieldset = document.createElement("fieldset");
+        lenseFieldset.appendChild(lenseLabel);
+        lenseFieldset.appendChild(lenseSelect);
+            // Quantity
+        let qttLabel = document.createElement("label");
+        qttLabel.setAttribute("for", "quantity");
+        qttLabel.textContent = "Quantité";
+        let qttInput = document.createElement("input");
+        qttInput.setAttribute("type", "number");
+        qttInput.setAttribute("name", "quantity");
+        qttInput.setAttribute("id", "quantity");
+        qttInput.setAttribute("min", "1");
+        qttInput.setAttribute("max", "10");
+        let qttFieldset = document.createElement("fieldset");
+        qttFieldset.appendChild(qttLabel);
+        qttFieldset.appendChild(qttInput);
+            // Hidden input for id
+        let idInput = document.createElement("input");
+        idInput.setAttribute("type", "hidden");
+        idInput.setAttribute("name", "id");
+        idInput.setAttribute("value", camera._id);
+            // Buttons
+        let cartButton = document.createElement("button");
+        cartButton.classList.add("btn");
+        cartButton.classList.add("btn-cart");
+        cartButton.setAttribute("type", "submit");
+        cartButton.textContent = "Ajouter au panier";
+        let homeButton = document.createElement("a");
+        homeButton.classList.add("btn");
+        homeButton.classList.add("btn-back");
+        homeButton.setAttribute("href", "/");
+        homeButton.textContent = "Retour à l'accueil";
+        let divButtons = document.createElement("div");
+        divButtons.classList.add("product--form--buttons");
+        divButtons.appendChild(cartButton);
+        divButtons.appendChild(homeButton);
+            // Form
+        let form = document.createElement("form");
+        form.classList.add("product--form");
+        form.appendChild(lenseFieldset);
+        form.appendChild(qttFieldset);
+        form.appendChild(idInput);
+        form.appendChild(divButtons);
+        // Create div Container
+        let container = document.createElement("div");
+        container.classList.add("container");
+        container.appendChild(title);
+        container.appendChild(description);
+        container.appendChild(price);
+        container.appendChild(form);
+        // Put everything in target Div
+        targetDiv.appendChild(image);
+        targetDiv.appendChild(container);
+    }
 }

@@ -3,19 +3,36 @@ const url_string = window.location.href;
 const url = new URL(url_string);
 const id = url.searchParams.get("id");
 
+// Récupération de la liste des Id existantes
+const request = new Request();
+request.getJson("/api/cameras/")
+    .then (cameras => {
+        let ids = [];
+        for (const camera of cameras) {
+            ids.push(camera._id);
+        }
+        // Test si l'id existe dans la BDD
+        if (ids.includes(id)) {
+            // Produit existe
+            request.getJson("/api/cameras/" + id)
+                .then(camera => {
+                    let targetDiv = document.getElementById('product');
+                    const build = new BuildHtml();
+                    build.productDescription(camera, targetDiv);
+                })
+        } else {
+            // Produit inexistant        
+            let targetDiv = document.getElementById('product');
+            const build = new BuildHtml();
+            const errorDiv = build.errorMessage("Désolé, ce produit est introuvable...")
+            targetDiv.appendChild(errorDiv);
+        }
+        
+        
+    })
 
-if (/^([a-z]|[0-9]){24}$/m.test(id)) {
-    // Produit existe (= id correspond à ce qui est attendu)
-    console.log(id);
-    const request = new Request();
-    request.getJson("/api/cameras/" + id)
-        .then(camera => {
-            console.log(camera);
-        })
-} else {
-    // Produit inexistant
-    console.log("404 : Produit introuvable"); 
-}
+
+
 
 
 
