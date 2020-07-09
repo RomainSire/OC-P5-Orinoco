@@ -1,5 +1,6 @@
 .product {
-    margin: 3rem auto;
+    margin: 30px auto;
+    margin-top: $header-size + 30px;
     max-width: 750px;
     background-color: $card-color;
     box-shadow: 0 0 10px #5558;

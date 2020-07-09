@@ -18,3 +18,5 @@ request.getJson("/api/cameras")
         let targetDiv = document.querySelector("#products-list > div");
         targetDiv.appendChild(errorDiv);
     });
+
+

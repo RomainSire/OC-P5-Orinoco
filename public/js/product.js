@@ -35,7 +35,5 @@ request.getJson("/api/cameras/")
 
 
 
-
-
 // TODO:
 // Penser à changer le titre de la page & description + social
