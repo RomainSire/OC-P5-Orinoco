@@ -110,6 +110,7 @@ class BuildHtml {
         qttInput.setAttribute("id", "quantity");
         qttInput.setAttribute("min", "1");
         qttInput.setAttribute("max", "10");
+        qttInput.setAttribute("value", "1");
         let qttFieldset = document.createElement("fieldset");
         qttFieldset.appendChild(qttLabel);
         qttFieldset.appendChild(qttInput);
@@ -117,6 +118,7 @@ class BuildHtml {
         let idInput = document.createElement("input");
         idInput.setAttribute("type", "hidden");
         idInput.setAttribute("name", "id");
+        idInput.setAttribute("id", "id");
         idInput.setAttribute("value", camera._id);
             // Buttons
         let cartButton = document.createElement("button");
@@ -152,6 +154,13 @@ class BuildHtml {
         targetDiv.appendChild(container);
     }
 
+    /**
+     * Permet de changer le titre, la description et les metas de réseaux sociaux de la balise head d'une page
+     * @param {String} title Nouveau titre de la page
+     * @param {String} description Nouvelle description de la page
+     * @param {String} socialUrl URL de la page pour les réseaux sociaux
+     * @param {String} socialImage URL de l'image d'illustration pour les réseaux sociaux
+     */
     changeHeadMetas(title, description, socialUrl, socialImage) {
         document.title = title;
         document.querySelector('meta[name="description"]').setAttribute("content", description);

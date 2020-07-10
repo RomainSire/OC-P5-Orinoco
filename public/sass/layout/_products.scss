@@ -15,7 +15,7 @@
         @include zoomOnHover(1.01);
         &:hover {
             .products-list--link {
-                color: $emphasis-color;
+                color: $success-color;
             }
         }
     }
@@ -32,7 +32,7 @@
         }
     }
     &--price {
-        font-weight: bold;
+        font-weight: 900;
         font-size: 1.2rem;
     }
 }

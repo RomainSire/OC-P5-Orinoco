@@ -20,3 +20,6 @@ request.getJson("/api/cameras")
     });
 
 
+// Afficher le nombre de produits du panier dans le header
+const cart = new Cart();
+cart.displayNumberOfProductsInHeader();

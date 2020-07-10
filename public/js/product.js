@@ -29,6 +29,19 @@ request.getJson("/api/cameras/")
                         camera.imageUrl
                         )
                 })
+                .then(() => {
+                    // Ajout au panier
+                    let addToCartButton = document.querySelector(".btn-cart");
+                    addToCartButton.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        const id = document.getElementById("id").value;
+                        const lense = document.getElementById("lense").value;
+                        const quantity = document.getElementById("quantity").value;
+                        
+                        const cart = new Cart();
+                        cart.add(id, lense, quantity);
+                    })
+                })
         } else {
             // Produit inexistant        
             let targetDiv = document.getElementById('product');
@@ -39,3 +52,8 @@ request.getJson("/api/cameras/")
         
         
     })
+
+
+// Afficher le nombre de produits du panier dans le header
+const cart = new Cart();
+cart.displayNumberOfProductsInHeader();

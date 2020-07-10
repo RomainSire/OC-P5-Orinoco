@@ -91,7 +91,7 @@ label {
   width: 100%;
 }
 .error p {
-  color: #cc8b40;
+  color: #e68a34;
   font-family: "Federo", sans-serif;
   font-size: 3rem;
   font-style: italic;
@@ -139,8 +139,8 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #cc8b40;
-  font-weight: 700;
+  background: linear-gradient(to right, #e68a34, #8f61e4);
+  font-weight: 900;
 }
 .header + * {
   margin-top: 80px;
@@ -202,7 +202,7 @@ label {
   transform: scale(1.01);
 }
 .products-list--card:hover .products-list--link {
-  color: #cc8b40;
+  color: #8f61e4;
 }
 .products-list--image {
   width: 100%;
@@ -217,7 +217,7 @@ label {
   width: 100%;
 }
 .products-list--price {
-  font-weight: bold;
+  font-weight: 900;
   font-size: 1.2rem;
 }
 
@@ -241,7 +241,7 @@ label {
   margin: 1rem 0;
 }
 .product--price {
-  font-weight: bold;
+  font-weight: 900;
   font-size: 1.5rem;
   margin: 1rem 0;
 }
@@ -291,7 +291,7 @@ label {
   text-align: center;
 }
 .product--form--buttons .btn.btn-cart {
-  background-color: #F0F4C3;
+  background-color: #dccef7;
 }
 @media screen and (min-width: 600px) {
   .product--form--buttons .btn.btn-back {
@@ -304,6 +304,7 @@ label {
   margin-top: 6rem;
   padding: 20px 0;
   font-size: 1.1rem;
+  font-weight: 900;
   text-align: center;
   position: relative;
 }
