@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="noindex, follow">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
@@ -14,23 +14,23 @@
     <meta name="msapplication-TileColor" content="#603cba">
     <meta name="theme-color" content="#ffffff">
     <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Federo&family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Federo&family=Roboto:wght@400;900&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/css/style.css">
     <!-- JS -->
     <script src="/js/Request.class.js" defer></script>
     <script src="/js/BuildHtml.class.js" defer></script>
     <script src="/js/Cart.class.js" defer></script>
-    <script src="/js/product.js" defer></script>
+    <script src="/js/cart.js" defer></script>
     <!-- Title & description -->
-    <title>L'équipement photo vintage des passionnés - Oricam</title>
-    <meta name="description" content="Découvrez notre sélection d'équipement photographique vintage, spécialement pensée pour les passionnés des négatifs argentiques et de la chambre noire.">
+    <title>Votre panier - Oricam</title>
+    <meta name="description" content="Le contenu de votre panier chez le spécialiste d'équipement photographique vintage: Oricam">
     <!-- Social -->
-	<meta name="twitter:card" content="Découvrez notre sélection d'équipement photographique vintage, spécialement pensée pour les passionnés des négatifs argentiques et de la chambre noire">
-    <meta property="og:title" content="L'équipement photo vintage des passionnés - Oricam" />
+	<meta name="twitter:card" content="Le contenu de votre panier chez le spécialiste d'équipement photographique vintage: Oricam">
+    <meta property="og:title" content="Votre panier - Oricam" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="#" />
-    <meta property="og:image" content="#" />
-    <meta property="og:description" content="Découvrez notre sélection d'équipement photographique vintage, spécialement pensée pour les passionnés des négatifs argentiques et de la chambre noire" />
+    <meta property="og:image" content="/img/social/vintage-camera.jpg" />
+    <meta property="og:description" content="Le contenu de votre panier chez le spécialiste d'équipement photographique vintage: Oricam" />
 </head>
 <body id="top">
     <!-- HEADER -->
@@ -47,37 +47,68 @@
             </a>
         </div>
     </header>
-    <!-- PRODUCT -->
-    <div class="container">
-        <section class="product" id="product">
-            <!-- <img class="product--image" src="/test/vcam_2.jpg" alt="appareil photo vintage">
-            <div class="container">
-                <h1 class="product--title">Hirsch 400DTS</h1>
-                <p class="product--description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quae, nemo sint aut soluta nam assumenda modi consectetur iste sed vero veritatis libero id hic enim earum dolore atque quam.</p>
-                <p class="product--price">309 €</p>
-                <form class="product--form">
-                    <fieldset>
-                        <label for="lense">Objectif</label>
-                        <select name="lense" id="lense">
-                            <option value="0">50mm 1.8</option>
-                            <option value="1">60mm 2.8</option>
-                            <option value="2">24-60mm 2.8/4.5</option>
-                        </select>
-                    </fieldset>
-                    <fieldset>
-                        <label for="quantity">Quantité</label>
-                        <input type="number" name="quantity" id="quantity" min="1" max="10">
-                    </fieldset>
-                    <input type="hidden" name="id" id="id" value="5be1ef211c9d44000030b062">
-                    <div class="product--form--buttons">
-                        <button class="btn btn-cart" type="submit">Ajouter au panier</button>
-                        <a class="btn btn-back" href="/">Retour à l'accueil</a>
-                    </div >
-                </form> 
-            </div> -->
-        </section>
-    </div>
     
+    <!-- CART -->
+    <section id="cart" class="container cart">
+        <h1 class="cart--title">Finalisation de votre commande</h1>
+        <h2>Votre pannier</h2>
+        <div id="cartTable">
+            <table class="cart--table">
+                <thead>
+                    <tr>
+                        <th>Appareil photo</th>
+                        <th>Objectif</th>
+                        <th>Quantité</th>
+                        <th>Prix</th>
+                    </tr>
+                </thead>
+                <tbody id="cartTableBody">
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Total de la commande</td>
+                        <td id="cartTableTotalPrice">#</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        
+        
+        <h2>Vos coordonnées</h2>
+        <form class="cart--form">
+            <p>
+                <label for="firstname">Prénom</label>
+                <input type="text" name="firstname" id="firstname">
+            </p>
+            <p>
+                <label for="lastname">Nom</label>
+                <input type="text" name="lastname" id="lastname">
+            </p>
+            <p>
+                <label for="address">Adresse</label>
+                <input type="text" name="address" id="address">
+            </p>
+            <p>
+                <label for="zipCode">Code Postal</label>
+                <input type="text" name="zipCode" id="zipCode">
+            </p>
+            <p>
+                <label for="city">Ville</label>
+                <input type="text" name="city" id="city">
+            </p>
+            <p>
+                <label for="email">e-mail</label>
+                <input type="email" name="email" id="email">
+            </p>
+            <input type="hidden" name="products" id="products" value="#">
+            <button type="submit" class="btn cart--btn cart--btn__purchase">Passer la commande</button>
+        </form>
+
+        <button class="btn cart--btn cart--btn__cancel">Annuler et vider le panier</button>
+        
+        
+    </section>
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container footer--wrapper">

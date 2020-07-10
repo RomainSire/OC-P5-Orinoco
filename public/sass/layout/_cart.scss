@@ -1,0 +1,77 @@
+.cart {
+    &--title {
+        padding-top: 3rem;
+    }
+    &--table {
+        width: 100%;
+        text-align: center;
+        thead {
+            border-bottom: 2px solid $success-color;
+        }
+        tfoot {
+            border-top: 2px solid $success-color;
+            font-weight: 900;
+            td:first-of-type {
+                text-align: right;
+            }
+        }
+        th, td {
+            padding: 10px 5px;
+        }
+    }
+    &--form {
+        border: 1px solid $footer-color;
+        border-radius: 5px;
+        background: $card-color;
+        padding: 1rem;
+        p {
+            display: flex;
+            flex-flow: row nowrap;
+            border: 1px solid $footer-color;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            padding: 0;
+            line-height: 2.5rem;
+        }
+        label {
+            background: $bg-color;
+            border-right: 1px solid $footer-color;
+            width: 20%;
+            min-width: 110px;
+            text-align: center;
+        }
+        input {
+            background: $card-color;
+            border: none;
+            width: 100%;
+        }
+    }
+    &--btn {
+        display: block;
+        border: 1px solid $footer-color;
+        border-radius: 5px;
+        padding: 0.8rem 1.5rem;
+        text-align: center;
+        &__purchase {
+            background-color: lighten($success-color, 25%);
+            margin: auto;
+            &:disabled {
+                background: $bg-color;
+                cursor: not-allowed;
+                &:hover {
+                    transform: none;
+                }
+            }
+        }
+        &__cancel {
+            background-color: lighten($danger-color, 35%);
+        }
+    }
+    &--empty-cart {
+        color: $danger-color;
+        text-align: center;
+        font-style: italic;
+        font-size: 1.5rem;
+    }
+}

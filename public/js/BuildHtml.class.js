@@ -170,4 +170,46 @@ class BuildHtml {
         document.querySelector('meta[property="og:image"]').setAttribute("content", socialImage);
         document.querySelector('meta[property="og:description"]').setAttribute("content", description);
     }
+
+    /**
+     * Crée le tableau de produits présents dans le panier
+     * Doit ensuite être intégré dans la page panier
+     * @param {Array} products Tableau d'objets chacun représentant un produit à afficher {id, name, lenseName, quantity, price}
+     */
+    cart(products) {
+        let totalPrice = 0;
+        let listOfIds = [];
+        for (const product of products) {
+            // Id
+            listOfIds.push(product.id)
+            // name
+            let nameCell = document.createElement('td');
+            nameCell.textContent = product.name;
+            // lense
+            let lenseCell = document.createElement('td');
+            lenseCell.textContent = product.lenseName;
+            // Quantity
+            let quantityCell = document.createElement('td');
+            quantityCell.textContent = product.quantity;
+            // Price
+            let priceOfLine = (product.price * product.quantity) / 100;
+            let priceCell = document.createElement('td');
+            priceCell.textContent = priceOfLine + " €";
+            totalPrice += priceOfLine;
+            // ligne html et intégration dans le document
+            let tr = document.createElement('tr');
+            tr.appendChild(nameCell);
+            tr.appendChild(lenseCell);
+            tr.appendChild(quantityCell);
+            tr.appendChild(priceCell);
+            let tbody = document.getElementById("cartTableBody");
+            tbody.appendChild(tr);
+        }
+        // Ajout du prix total
+        let totalPriceCell = document.getElementById("cartTableTotalPrice");
+        totalPriceCell.textContent = totalPrice + " €";
+        // Ajout de la liste des ID au formulaire
+        let listOfIdsCell = document.getElementById("products");
+        listOfIdsCell.value = JSON.stringify(listOfIds);
+    }
 }
