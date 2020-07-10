@@ -1,0 +1,78 @@
+.product {
+    margin: 30px auto;
+    margin-top: $header-size + 30px;
+    max-width: 750px;
+    background-color: $card-color;
+    box-shadow: 0 0 10px #5558;
+    border-radius: 5px;
+    overflow: hidden;
+    &--image {
+        width: 100%;
+    }
+    &--title {
+        margin: 1rem 0;
+    }
+    &--description {
+        text-align: justify;
+        margin: 1rem 0;
+    }
+    &--price {
+        font-weight: 900;
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+    &--form {
+        margin: 1rem 0;
+        fieldset {
+            display: flex;
+            flex-flow: row nowrap;
+            border: 1px solid $footer-color;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            padding: 0;
+        }
+        label {
+            background: $bg-color;
+            border-right: 1px solid $footer-color;
+            width: 130px;
+            height: 2.5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        select,
+        input {
+            background: $card-color;
+            border: none;
+            padding: 0 1rem;
+            width: 100%;
+        }
+
+        &--buttons {
+            display: flex;
+            flex-direction: column;
+            @include desktop-only {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            .btn {
+                border: 1px solid $footer-color;
+                border-radius: 5px;
+                padding: 0.8rem 1.5rem;
+                margin-top: 1em;
+                text-align: center;
+                &.btn-cart {
+                    background-color: lighten($success-color, 25%);
+                }
+                &.btn-back {
+                    @include desktop-only {
+                        order: -1;
+                    }
+                }
+            }
+        }
+    }
+    
+
+}

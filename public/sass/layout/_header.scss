@@ -2,6 +2,13 @@
     
     padding: 10px 0;
     background: $footer-color;
+    height: $header-size;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    
     &--wrapper {
         display: flex;
         flex-flow: row nowrap;
@@ -29,8 +36,11 @@
             justify-content: center;
             align-items: center;
             // typo & colors
-            background: $emphasis-color;
-            font-weight: 700;
+            background: linear-gradient(to right, $danger-color, $success-color);
+            font-weight: 900;
         }
+    } 
+    + * {
+        margin-top: $header-size;
     }
 }

@@ -14,11 +14,12 @@
     <meta name="msapplication-TileColor" content="#603cba">
     <meta name="theme-color" content="#ffffff">
     <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Federo&family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Federo&family=Roboto:wght@400;900&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/css/style.css">
     <!-- JS -->
     <script src="/js/Request.class.js" defer></script>
     <script src="/js/BuildHtml.class.js" defer></script>
+    <script src="/js/Cart.class.js" defer></script>
     <script src="/js/home.js" defer></script>
     <!-- Title & description -->
     <title>L'équipement photo vintage des passionnés - Oricam</title>
@@ -31,14 +32,14 @@
     <meta property="og:image" content="/img/social/vintage-camera.jpg" />
     <meta property="og:description" content="Découvrez notre sélection d'équipement photographique vintage, spécialement pensée pour les passionnés des négatifs argentiques et de la chambre noire" />
 </head>
-<body>
+<body id="top">
     <!-- HEADER -->
-    <header class="header">
+    <header class="header" id="header">
         <div class="container header--wrapper">
             <a href="/">
                 <img src="/img/logo.svg" class="header--logo" alt="Logo de Oricam" aria-label="Accéder à la page d'accueil">
             </a>
-            <a href="#" class="header--cart">
+            <a href="/cart.html" class="header--cart">
                 <img src="/img/icons/cart3.svg" class="header--cart" alt="Icone du panier" aria-label="Accéder au panier">
                 <div class="header--cart--counter hidden">
                     0
@@ -97,7 +98,7 @@
                 <a href="#">Contact</a>
             </div>
         </div>
-        <a href="#products-list" class="footer--arrow-up">
+        <a href="#top" class="footer--arrow-up">
             <img src="/img/icons/caret-up.svg" alt="Voir la liste des produits" aria-label="Voir la liste des produits">
         </a>
     </footer>

@@ -18,3 +18,8 @@ request.getJson("/api/cameras")
         let targetDiv = document.querySelector("#products-list > div");
         targetDiv.appendChild(errorDiv);
     });
+
+
+// Afficher le nombre de produits du panier dans le header
+const cart = new Cart();
+cart.displayNumberOfProductsInHeader();
