@@ -182,6 +182,9 @@ label {
   border-bottom-right-radius: 50px;
   box-shadow: 0 4px 3px -3px #464646;
 }
+.hero--confirmation {
+  font-size: 1.5rem;
+}
 
 .products-list--wrapper {
   display: flex;
@@ -352,6 +355,7 @@ label {
   background: #fff;
   border: none;
   width: 100%;
+  padding: 0 0.7rem;
 }
 .cart--btn {
   display: block;
