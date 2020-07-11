@@ -64,6 +64,9 @@ class Cart {
         }
     }
 
+    /**
+     * Affiche tous les produits du panier sur la page de finalisation de la commande
+     */
     displayCart() {
         let productsInCart = JSON.parse(localStorage.getItem('cart'));
         if (productsInCart) {
@@ -79,6 +82,7 @@ class Cart {
                         productsToDisplay.push({
                             "id": product.id,
                             "name": matchingCamera.name,
+                            "lenseId": product.lenseId,
                             "lenseName": matchingCamera.lenses[product.lenseId],
                             "quantity": product.quantity,
                             "price": matchingCamera.price
@@ -86,6 +90,15 @@ class Cart {
                     }
                     const build = new BuildHtml();
                     build.cart(productsToDisplay);
+                    // Ajout de l'event listenet pour la suppression de 1 produit
+                    let deleteBtns = document.querySelectorAll("#cartTableBody td:last-child");
+                    for (const deleteBtn of deleteBtns) {
+                        deleteBtn.addEventListener('click', function() {
+                            const cart = new Cart();
+                            cart.delete1Item(this);
+                        });
+                    }
+                    
 
                 })
             document.querySelector(".cart--btn__purchase").disabled = false;
@@ -95,5 +108,30 @@ class Cart {
             document.getElementById("cartTable").innerHTML = '<p class="cart--empty-cart">Votre panier est vide !</p>';
             document.querySelector(".cart--btn__purchase").disabled = true;
         }
+    }
+    /**
+     * Supprimer 1 article du panier
+     * @param {Element} deleteBtn Element <td> de suppression d'1 article
+     */
+    delete1Item(deleteBtn) {
+        // Récupération des infos :
+        let tr = deleteBtn.parentElement;
+        let idToDelete = tr.dataset.id;
+        let lenseIdToDelete = tr.dataset.lenseId;
+        let productsInCart = JSON.parse(localStorage.getItem('cart'));
+
+        // supression dans le panier
+        const newProductsInCart = productsInCart.filter(product => product.id != idToDelete && product.lenseId != lenseIdToDelete);
+        if (newProductsInCart.length === 0) {
+            // panier vide
+            localStorage.removeItem('cart');
+            document.location.href = "/"
+        } else {
+            localStorage.setItem('cart', JSON.stringify(newProductsInCart));
+        }
+        
+        // supression dans l'affichage
+        tr.remove();
+        this.displayNumberOfProductsInHeader();
     }
 }

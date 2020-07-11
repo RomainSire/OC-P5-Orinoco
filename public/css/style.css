@@ -319,6 +319,12 @@ label {
 .cart--table th, .cart--table td {
   padding: 10px 5px;
 }
+.cart--table tbody td:last-child {
+  cursor: pointer;
+}
+.cart--table tbody td:last-child:hover {
+  color: #e68a34;
+}
 .cart--form {
   border: 1px solid #bbb;
   border-radius: 5px;

@@ -10,7 +10,8 @@ cart.displayCart();
 const cancelBtn = document.querySelector(".cart--btn__cancel");
 cancelBtn.addEventListener('click', function(e) {
     e.preventDefault();
-    console.log('cancel');
+    localStorage.removeItem('cart');
+    document.location.href = "/"
 })
 
 

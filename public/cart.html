@@ -60,6 +60,7 @@
                         <th>Objectif</th>
                         <th>Quantité</th>
                         <th>Prix</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody id="cartTableBody">
@@ -69,6 +70,7 @@
                     <tr>
                         <td colspan="3">Total de la commande</td>
                         <td id="cartTableTotalPrice">#</td>
+                        <td></td>
                     </tr>
                 </tfoot>
             </table>
@@ -79,27 +81,27 @@
         <form class="cart--form">
             <p>
                 <label for="firstname">Prénom</label>
-                <input type="text" name="firstname" id="firstname">
+                <input type="text" name="firstname" id="firstname" required>
             </p>
             <p>
                 <label for="lastname">Nom</label>
-                <input type="text" name="lastname" id="lastname">
+                <input type="text" name="lastname" id="lastname" required>
             </p>
             <p>
                 <label for="address">Adresse</label>
-                <input type="text" name="address" id="address">
+                <input type="text" name="address" id="address" required>
             </p>
             <p>
                 <label for="zipCode">Code Postal</label>
-                <input type="text" name="zipCode" id="zipCode">
+                <input type="text" name="zipCode" id="zipCode" required>
             </p>
             <p>
                 <label for="city">Ville</label>
-                <input type="text" name="city" id="city">
+                <input type="text" name="city" id="city" required>
             </p>
             <p>
                 <label for="email">e-mail</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" required>
             </p>
             <input type="hidden" name="products" id="products" value="#">
             <button type="submit" class="btn cart--btn cart--btn__purchase">Passer la commande</button>

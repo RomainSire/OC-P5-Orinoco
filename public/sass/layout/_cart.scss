@@ -18,6 +18,12 @@
         th, td {
             padding: 10px 5px;
         }
+        tbody td:last-child {
+            cursor: pointer;
+            &:hover {
+                color: $danger-color;
+            }
+        }
     }
     &--form {
         border: 1px solid $footer-color;
