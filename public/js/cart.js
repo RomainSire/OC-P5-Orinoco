@@ -19,5 +19,6 @@ cancelBtn.addEventListener('click', function(e) {
 const purchaseBtn = document.querySelector(".cart--btn__purchase");
 purchaseBtn.addEventListener('click', function(e) {
     e.preventDefault();
-    console.log('purchase');
+    const order = new Order();
+    order.purchase();
 })
