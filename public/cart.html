@@ -20,18 +20,18 @@
     <script src="/js/class/Request.class.js" defer></script>
     <script src="/js/class/BuildHtml.class.js" defer></script>
     <script src="/js/class/Cart.class.js" defer></script>
-    <script src="/js/class/Order.class.js" defer></script>
+    <script src="/js/class/Validation.class.js" defer></script>
     <script src="/js/cart.js" defer></script>
     <!-- Title & description -->
     <title>Votre panier - Oricam</title>
     <meta name="description" content="Le contenu de votre panier chez le spécialiste d'équipement photographique vintage: Oricam">
     <!-- Social -->
-	<meta name="twitter:card" content="Le contenu de votre panier chez le spécialiste d'équipement photographique vintage: Oricam">
-    <meta property="og:title" content="Votre panier - Oricam" />
+	<meta name="twitter:card" content="Découvrez notre sélection d'équipement photographique vintage, spécialement pensée pour les passionnés des négatifs argentiques et de la chambre noire">
+    <meta property="og:title" content="L'équipement photo vintage des passionnés - Oricam" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="#" />
     <meta property="og:image" content="/img/social/vintage-camera.jpg" />
-    <meta property="og:description" content="Le contenu de votre panier chez le spécialiste d'équipement photographique vintage: Oricam" />
+    <meta property="og:description" content="Découvrez notre sélection d'équipement photographique vintage, spécialement pensée pour les passionnés des négatifs argentiques et de la chambre noire" />
 </head>
 <body id="top">
     <!-- HEADER -->
@@ -79,6 +79,7 @@
         
         
         <h2>Vos coordonnées</h2>
+        <p><em>Tous les champs sont obligatoires</em></p>
         <form class="cart--form">
             <p>
                 <label for="firstname">Prénom</label>
@@ -91,10 +92,6 @@
             <p>
                 <label for="address">Adresse</label>
                 <input type="text" name="address" id="address" required>
-            </p>
-            <p>
-                <label for="zipCode">Code Postal</label>
-                <input type="text" name="zipCode" id="zipCode" required>
             </p>
             <p>
                 <label for="city">Ville</label>

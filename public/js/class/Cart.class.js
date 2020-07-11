@@ -50,7 +50,7 @@ class Cart {
     /**
      * Afficher le nombre de produits du panier dans le header de la page
      */
-    displayNumberOfProductsInHeader () {
+    displayNumberOfProductsInHeader() {
         let cart = JSON.parse(localStorage.getItem('cart'));
         let targetDiv = document.querySelector(".header--cart--counter");
         if (cart) {
@@ -133,5 +133,9 @@ class Cart {
         // supression dans l'affichage
         tr.remove();
         this.displayNumberOfProductsInHeader();
+    }
+
+    emptyCart() {
+
     }
 }
