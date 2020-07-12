@@ -37,9 +37,16 @@ request.getJson("/api/cameras/")
                         const id = document.getElementById("id").value;
                         const lense = document.getElementById("lense").value;
                         const quantity = document.getElementById("quantity").value;
+                        try {
+                            const validation = new Validation();
+                            validation.checkOptions(lense, quantity);
+                            
+                            const cart = new Cart();
+                            cart.add(id, lense, quantity);
+                        } catch (error) {
+                            alert(error);
+                        }
                         
-                        const cart = new Cart();
-                        cart.add(id, lense, quantity);
                     })
                 })
         } else {

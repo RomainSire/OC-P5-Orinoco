@@ -26,4 +26,19 @@ class Validation {
             throw "L'adresse e-mail est incorrecte";
         }
     }
+    /**
+     * Validation du formulaire lors de l'ajout d'un produit au panier
+     * @param {String} lenseId L'id de l'objectif choisi (sous forme de string)
+     * @param {String} quantity La quantité choisie (sous forme de string)
+     */
+    checkOptions(lenseId, quantity) {
+        const lenseRegex = /^[0-9]$/;
+        if (!lenseRegex.test(lenseId)) {
+            throw "Merci de sélectionner un objectif dans la liste";
+        }
+        const qttRegex = /^(?:[1-9]|0[1-9]|10)$/;
+        if (!qttRegex.test(quantity)) {
+            throw "Merci de choisir une quantité entre 1 et 10";
+        }
+    }
 }
