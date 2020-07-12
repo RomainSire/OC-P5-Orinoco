@@ -76,6 +76,7 @@ label {
   padding: 0.5rem 1.5rem;
   margin-top: 2rem;
   color: #464646;
+  font-size: 1rem;
   cursor: pointer;
   transition: transform 300ms;
 }
@@ -182,6 +183,9 @@ label {
   border-bottom-right-radius: 50px;
   box-shadow: 0 4px 3px -3px #464646;
 }
+.hero--confirmation {
+  font-size: 1.5rem;
+}
 
 .products-list--wrapper {
   display: flex;
@@ -248,7 +252,7 @@ label {
 .product--form {
   margin: 1rem 0;
 }
-.product--form fieldset {
+.product--form p {
   display: flex;
   flex-flow: row nowrap;
   border: 1px solid #bbb;
@@ -256,22 +260,20 @@ label {
   overflow: hidden;
   margin-bottom: 1rem;
   padding: 0;
+  line-height: 2.5rem;
 }
 .product--form label {
   background: #eee;
   border-right: 1px solid #bbb;
-  width: 130px;
-  height: 2.5em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 20%;
+  min-width: 110px;
+  text-align: center;
 }
-.product--form select,
-.product--form input {
+.product--form select, .product--form input {
   background: #fff;
   border: none;
-  padding: 0 1rem;
   width: 100%;
+  padding: 0 0.7rem;
 }
 .product--form--buttons {
   display: flex;
@@ -319,6 +321,12 @@ label {
 .cart--table th, .cart--table td {
   padding: 10px 5px;
 }
+.cart--table tbody td:last-child {
+  cursor: pointer;
+}
+.cart--table tbody td:last-child:hover {
+  color: #e68a34;
+}
 .cart--form {
   border: 1px solid #bbb;
   border-radius: 5px;
@@ -342,10 +350,11 @@ label {
   min-width: 110px;
   text-align: center;
 }
-.cart--form input {
+.cart--form select, .cart--form input {
   background: #fff;
   border: none;
   width: 100%;
+  padding: 0 0.7rem;
 }
 .cart--btn {
   display: block;

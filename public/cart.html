@@ -17,20 +17,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Federo&family=Roboto:wght@400;900&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/css/style.css">
     <!-- JS -->
-    <script src="/js/Request.class.js" defer></script>
-    <script src="/js/BuildHtml.class.js" defer></script>
-    <script src="/js/Cart.class.js" defer></script>
+    <script src="/js/class/Request.class.js" defer></script>
+    <script src="/js/class/BuildHtml.class.js" defer></script>
+    <script src="/js/class/Cart.class.js" defer></script>
+    <script src="/js/class/Validation.class.js" defer></script>
     <script src="/js/cart.js" defer></script>
     <!-- Title & description -->
     <title>Votre panier - Oricam</title>
     <meta name="description" content="Le contenu de votre panier chez le spécialiste d'équipement photographique vintage: Oricam">
     <!-- Social -->
-	<meta name="twitter:card" content="Le contenu de votre panier chez le spécialiste d'équipement photographique vintage: Oricam">
-    <meta property="og:title" content="Votre panier - Oricam" />
+	<meta name="twitter:card" content="Découvrez notre sélection d'équipement photographique vintage, spécialement pensée pour les passionnés des négatifs argentiques et de la chambre noire">
+    <meta property="og:title" content="L'équipement photo vintage des passionnés - Oricam" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="#" />
     <meta property="og:image" content="/img/social/vintage-camera.jpg" />
-    <meta property="og:description" content="Le contenu de votre panier chez le spécialiste d'équipement photographique vintage: Oricam" />
+    <meta property="og:description" content="Découvrez notre sélection d'équipement photographique vintage, spécialement pensée pour les passionnés des négatifs argentiques et de la chambre noire" />
 </head>
 <body id="top">
     <!-- HEADER -->
@@ -60,6 +61,7 @@
                         <th>Objectif</th>
                         <th>Quantité</th>
                         <th>Prix</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody id="cartTableBody">
@@ -69,6 +71,7 @@
                     <tr>
                         <td colspan="3">Total de la commande</td>
                         <td id="cartTableTotalPrice">#</td>
+                        <td></td>
                     </tr>
                 </tfoot>
             </table>
@@ -76,30 +79,27 @@
         
         
         <h2>Vos coordonnées</h2>
+        <p><em>Tous les champs sont obligatoires</em></p>
         <form class="cart--form">
             <p>
                 <label for="firstname">Prénom</label>
-                <input type="text" name="firstname" id="firstname">
+                <input type="text" name="firstname" id="firstname" required>
             </p>
             <p>
                 <label for="lastname">Nom</label>
-                <input type="text" name="lastname" id="lastname">
+                <input type="text" name="lastname" id="lastname" required>
             </p>
             <p>
                 <label for="address">Adresse</label>
-                <input type="text" name="address" id="address">
-            </p>
-            <p>
-                <label for="zipCode">Code Postal</label>
-                <input type="text" name="zipCode" id="zipCode">
+                <input type="text" name="address" id="address" required>
             </p>
             <p>
                 <label for="city">Ville</label>
-                <input type="text" name="city" id="city">
+                <input type="text" name="city" id="city" required>
             </p>
             <p>
                 <label for="email">e-mail</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" required>
             </p>
             <input type="hidden" name="products" id="products" value="#">
             <button type="submit" class="btn cart--btn cart--btn__purchase">Passer la commande</button>

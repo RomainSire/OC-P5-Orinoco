@@ -97,7 +97,7 @@ class BuildHtml {
             option.textContent = camera.lenses[i];
             lenseSelect.appendChild(option);
         }
-        let lenseFieldset = document.createElement("fieldset");
+        let lenseFieldset = document.createElement("p");
         lenseFieldset.appendChild(lenseLabel);
         lenseFieldset.appendChild(lenseSelect);
             // Quantity
@@ -111,7 +111,7 @@ class BuildHtml {
         qttInput.setAttribute("min", "1");
         qttInput.setAttribute("max", "10");
         qttInput.setAttribute("value", "1");
-        let qttFieldset = document.createElement("fieldset");
+        let qttFieldset = document.createElement("p");
         qttFieldset.appendChild(qttLabel);
         qttFieldset.appendChild(qttInput);
             // Hidden input for id
@@ -174,9 +174,10 @@ class BuildHtml {
     /**
      * Crée le tableau de produits présents dans le panier
      * Doit ensuite être intégré dans la page panier
-     * @param {Array} products Tableau d'objets chacun représentant un produit à afficher {id, name, lenseName, quantity, price}
+     * @param {Array} products Tableau d'objets chacun représentant un produit à afficher {id, name, lenseId, lenseName, quantity, price}
      */
     cart(products) {
+        document.getElementById("cartTableBody").textContent = "";
         let totalPrice = 0;
         let listOfIds = [];
         for (const product of products) {
@@ -196,12 +197,18 @@ class BuildHtml {
             let priceCell = document.createElement('td');
             priceCell.textContent = priceOfLine + " €";
             totalPrice += priceOfLine;
+            // Delete btn
+            let deleteCell = document.createElement('td');
+            deleteCell.innerHTML = '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/></svg>';
             // ligne html et intégration dans le document
             let tr = document.createElement('tr');
             tr.appendChild(nameCell);
             tr.appendChild(lenseCell);
             tr.appendChild(quantityCell);
             tr.appendChild(priceCell);
+            tr.appendChild(deleteCell);
+            tr.dataset.id = product.id;
+            tr.dataset.lenseId = product.lenseId;
             let tbody = document.getElementById("cartTableBody");
             tbody.appendChild(tr);
         }

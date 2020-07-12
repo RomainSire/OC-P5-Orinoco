@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="noindex, follow">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
@@ -14,23 +14,23 @@
     <meta name="msapplication-TileColor" content="#603cba">
     <meta name="theme-color" content="#ffffff">
     <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Federo&family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Federo&family=Roboto:wght@400;900&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/css/style.css">
     <!-- JS -->
     <script src="/js/class/Request.class.js" defer></script>
     <script src="/js/class/BuildHtml.class.js" defer></script>
     <script src="/js/class/Cart.class.js" defer></script>
     <script src="/js/class/Validation.class.js" defer></script>
-    <script src="/js/product.js" defer></script>
+    <script src="/js/confirmation.js" defer></script>
     <!-- Title & description -->
-    <title>L'équipement photo vintage des passionnés - Oricam</title>
-    <meta name="description" content="Découvrez notre sélection d'équipement photographique vintage, spécialement pensée pour les passionnés des négatifs argentiques et de la chambre noire.">
+    <title>Merci pour votre commande - Oricam</title>
+    <meta name="description" content="Merci pour votre commande chez le spécialiste d'équipement photographique vintage: Oricam">
     <!-- Social -->
 	<meta name="twitter:card" content="Découvrez notre sélection d'équipement photographique vintage, spécialement pensée pour les passionnés des négatifs argentiques et de la chambre noire">
     <meta property="og:title" content="L'équipement photo vintage des passionnés - Oricam" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="#" />
-    <meta property="og:image" content="#" />
+    <meta property="og:image" content="/img/social/vintage-camera.jpg" />
     <meta property="og:description" content="Découvrez notre sélection d'équipement photographique vintage, spécialement pensée pour les passionnés des négatifs argentiques et de la chambre noire" />
 </head>
 <body id="top">
@@ -48,36 +48,16 @@
             </a>
         </div>
     </header>
-    <!-- PRODUCT -->
-    <div class="container">
-        <section class="product" id="product">
-            <!-- <img class="product--image" src="/test/vcam_2.jpg" alt="appareil photo vintage">
-            <div class="container">
-                <h1 class="product--title">Hirsch 400DTS</h1>
-                <p class="product--description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quae, nemo sint aut soluta nam assumenda modi consectetur iste sed vero veritatis libero id hic enim earum dolore atque quam.</p>
-                <p class="product--price">309 €</p>
-                <form class="product--form">
-                    <fieldset>
-                        <label for="lense">Objectif</label>
-                        <select name="lense" id="lense">
-                            <option value="0">50mm 1.8</option>
-                            <option value="1">60mm 2.8</option>
-                            <option value="2">24-60mm 2.8/4.5</option>
-                        </select>
-                    </fieldset>
-                    <fieldset>
-                        <label for="quantity">Quantité</label>
-                        <input type="number" name="quantity" id="quantity" min="1" max="10">
-                    </fieldset>
-                    <input type="hidden" name="id" id="id" value="5be1ef211c9d44000030b062">
-                    <div class="product--form--buttons">
-                        <button class="btn btn-cart" type="submit">Ajouter au panier</button>
-                        <a class="btn btn-back" href="/">Retour à l'accueil</a>
-                    </div >
-                </form> 
-            </div> -->
-        </section>
-    </div>
+    
+    <!-- CONFIRMATION -->
+    <section class="hero">
+        <div class="hero--content container">
+            <h1 id="confirmation-title">Merci pour votre commande, # !</h1>
+            <p class="hero--confirmation">Montant total : <strong id="confirmation-price"># €</strong></p>
+            <p class="hero--confirmation">Votre numéro de commande : <strong id="confirmation-orderId">xxxxx-xxxxxx-xxxxx</strong></p>
+            <a href="/" class="btn hero--btn">Retour à l'accueil</a>
+        </div>
+    </section>
     
     <!-- FOOTER -->
     <footer class="footer">
