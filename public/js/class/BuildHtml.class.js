@@ -177,6 +177,7 @@ class BuildHtml {
      * @param {Array} products Tableau d'objets chacun représentant un produit à afficher {id, name, lenseId, lenseName, quantity, price}
      */
     cart(products) {
+        document.getElementById("cartTableBody").textContent = "";
         let totalPrice = 0;
         let listOfIds = [];
         for (const product of products) {

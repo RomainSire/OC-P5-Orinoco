@@ -90,7 +90,7 @@ class Cart {
                     }
                     const build = new BuildHtml();
                     build.cart(productsToDisplay);
-                    // Ajout de l'event listenet pour la suppression de 1 produit
+                    // Ajout de l'event listener pour la suppression de 1 produit
                     let deleteBtns = document.querySelectorAll("#cartTableBody td:last-child");
                     for (const deleteBtn of deleteBtns) {
                         deleteBtn.addEventListener('click', function() {
@@ -118,24 +118,22 @@ class Cart {
         let tr = deleteBtn.parentElement;
         let idToDelete = tr.dataset.id;
         let lenseIdToDelete = tr.dataset.lenseId;
-        let productsInCart = JSON.parse(localStorage.getItem('cart'));
+        const productsInCart = JSON.parse(localStorage.getItem('cart'));
 
         // supression dans le panier
-        const newProductsInCart = productsInCart.filter(product => product.id != idToDelete && product.lenseId != lenseIdToDelete);
+        const newProductsInCart = productsInCart.filter(product => (product.id != idToDelete) || (product.lenseId != lenseIdToDelete));
         if (newProductsInCart.length === 0) {
-            // panier vide
+            // Si panier vide
             localStorage.removeItem('cart');
-            document.location.href = "/"
+            // document.location.href = "/"
         } else {
             localStorage.setItem('cart', JSON.stringify(newProductsInCart));
         }
-        
-        // supression dans l'affichage
-        tr.remove();
+
+        // Affichage de la page
+        this.displayCart();
         this.displayNumberOfProductsInHeader();
+        
     }
 
-    emptyCart() {
-
-    }
 }
