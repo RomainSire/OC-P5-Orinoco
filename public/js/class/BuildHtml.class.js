@@ -97,7 +97,7 @@ class BuildHtml {
             option.textContent = camera.lenses[i];
             lenseSelect.appendChild(option);
         }
-        let lenseFieldset = document.createElement("fieldset");
+        let lenseFieldset = document.createElement("p");
         lenseFieldset.appendChild(lenseLabel);
         lenseFieldset.appendChild(lenseSelect);
             // Quantity
@@ -111,7 +111,7 @@ class BuildHtml {
         qttInput.setAttribute("min", "1");
         qttInput.setAttribute("max", "10");
         qttInput.setAttribute("value", "1");
-        let qttFieldset = document.createElement("fieldset");
+        let qttFieldset = document.createElement("p");
         qttFieldset.appendChild(qttLabel);
         qttFieldset.appendChild(qttInput);
             // Hidden input for id
