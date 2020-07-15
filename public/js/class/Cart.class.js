@@ -4,7 +4,8 @@
  */
 class Cart {
     /**
-     * Ajouter un produit au panier
+     * Ajoute un produit au panier
+     * @param {Object} event Evènement déclenché lorsque le bouton d'ajout au panier est cliqué
      */
     add(event) {
         event.preventDefault();
@@ -21,7 +22,7 @@ class Cart {
             validation.checkOptions(newItem.lenseId, newItem.quantity);
         } catch (error) {
             alert(error);
-            return; // stop l'exécution du code
+            return;
         }
         /**
          * Ajout du produit : plusieurs cas possible

@@ -172,8 +172,7 @@ class BuildHtml {
     }
 
     /**
-     * Crée le tableau de produits présents dans le panier
-     * Doit ensuite être intégré dans la page panier
+     * Crée le tableau de produits présents dans le panier, sur la page de finalisation de la commande
      * @param {Array} products Tableau d'objets chacun représentant un produit à afficher {id, name, lenseId, lenseName, quantity, price}
      */
     cart(products) {
@@ -217,7 +216,7 @@ class BuildHtml {
         totalPriceCell.textContent = totalPrice + " €";
     }
     /**
-     * Permet d'ajouter la liste des id des produits du panier dans un champ caché du formulaire.
+     * Permet d'ajouter la liste des id des produits du panier dans un champ du formulaire, sur la page de finalisation de la commande
      * @param {Array} idList Liste d'Id des caméras dans le panier
      */
     addProductListToForm(idList) {
