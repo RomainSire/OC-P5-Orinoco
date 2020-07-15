@@ -1,5 +1,11 @@
 /**
- * Affichage de toutes les caméras disponibles
+ * Afficher le nombre de produits du panier dans le header
+ */
+const cart = new Cart();
+cart.displayNumberOfProductsInHeader();
+
+/**
+ * Affichage de touts les produits disponibles
  */
 const targetDiv = document.querySelector("#products-list > div");
 // Récupération des données
@@ -19,8 +25,3 @@ request.getJson("/api/cameras")
         const errorDiv = build.errorMessage("Un petit problème est survenu...");
         targetDiv.appendChild(errorDiv);
     });
-/**
- * Afficher le nombre de produits du panier dans le header
- */
-const cart = new Cart();
-cart.displayNumberOfProductsInHeader();

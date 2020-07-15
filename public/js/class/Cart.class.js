@@ -5,34 +5,40 @@
 class Cart {
     /**
      * Ajouter un produit au panier
-     * @param {String} id Id du produit à ajouter
-     * @param {String} lenseId Id de l'option du produit à ajouter
-     * @param {String} quantity Quantité du produit à ajouter
      */
-    add(id, lenseId, quantity) {
+    add(event) {
+        event.preventDefault();
         const newItem = {
-            id: id,
-            lenseId: parseInt(lenseId),
-            quantity: parseInt(quantity)
+            id: document.getElementById("id").value,
+            lenseId: parseInt(document.getElementById("lense").value),
+            quantity: parseInt(document.getElementById("quantity").value)
         }
-        
+        /**
+         * Validation des infos entrées par l'utilisateur
+         */
+        try {
+            const validation = new Validation();
+            validation.checkOptions(newItem.lenseId, newItem.quantity);
+        } catch (error) {
+            alert(error);
+            return; // stop l'exécution du code
+        }
+        /**
+         * Ajout du produit : plusieurs cas possible
+         */
         let oldCart = JSON.parse(localStorage.getItem('cart'));
-
         if (!oldCart) {
             // SI le panier était vide
             let itemsList = [];
             itemsList.push(newItem);
             localStorage.setItem('cart', JSON.stringify(itemsList));
-
         } else {
             // SI il y a déjà qqch dans le panier
             const filteredCart = oldCart.filter(item => item.id === newItem.id && item.lenseId === newItem.lenseId);
-
             if (filteredCart.length === 0) {
                 // SI on a ajouté un NOUVEL article = on ajoute l'article à la liste
                 oldCart.push(newItem);
                 localStorage.setItem('cart', JSON.stringify(oldCart));
-
             } else {
                 // SI on a ajouté un article déjà existant dans le panier = on incrémente la quantité
                 oldCart.map(item => {
