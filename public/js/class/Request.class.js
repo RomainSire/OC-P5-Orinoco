@@ -14,13 +14,15 @@ class Request {
 
     /**
      * Passe une commande en POST au serveur
+     * @param {String} url L'url de la requête
      * @param {Object} contact Coordonnées du client
      * @param {Array} products Liste des id des produits achetés
+     * @return {Promise}    Réponse du serveur sous forme de promesse
      */
     purchase(url, contact, products) {
-        let data = {
-            "contact": contact,
-            "products": products
+        const data = {
+            contact,
+            products
         };
         const options = {
             method: 'POST',

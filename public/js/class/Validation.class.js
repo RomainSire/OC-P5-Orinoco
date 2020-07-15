@@ -4,8 +4,9 @@
  */
 class Validation {
     /**
-     * Permet de vérifier les coordonnées rentrées par l'utilisateur lors de la finalisation de la commande
+     * Validation des coordonnées rentrées par l'utilisateur lors de la finalisation de la commande
      * @param {Object} contact Coordonnées rentrées par l'utilisateur
+     * @throws  Lance une erreur si les coordonnées ne sont pas valides
      */
     checkOrder(contact) {
         if (!contact.firstName) {
@@ -20,7 +21,7 @@ class Validation {
         if (!contact.city) {
             throw "Merci de renseigner une ville";
         }
-        let email = contact.email.toLowerCase();
+        const email = contact.email.toLowerCase();
         const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!regex.test(email)) {
             throw "L'adresse e-mail est incorrecte";
@@ -30,6 +31,7 @@ class Validation {
      * Validation du formulaire lors de l'ajout d'un produit au panier
      * @param {String} lenseId L'id de l'objectif choisi (sous forme de string)
      * @param {String} quantity La quantité choisie (sous forme de string)
+     * @throws Lance une erreur si les options du produit ne sont pas valides
      */
     checkOptions(lenseId, quantity) {
         const lenseRegex = /^[0-9]$/;

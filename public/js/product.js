@@ -1,66 +1,49 @@
-// Récupération de l'url :
+/**
+ * Afficher le nombre de produits du panier dans le header
+ */
+const cart = new Cart();
+cart.displayNumberOfProductsInHeader();
+
+/**
+ * Récupération dans l'url de l'id du produit à afficher
+ */
 const url_string = window.location.href;
 const url = new URL(url_string);
 const id = url.searchParams.get("id");
 
-
-// Récupération de la liste des Id existantes
+/**
+ * Récupération et affichage du produit demandé
+ */
 const request = new Request();
-request.getJson("/api/cameras/")
-    .then (cameras => {
-        let ids = [];
-        for (const camera of cameras) {
-            ids.push(camera._id);
+request.getJson("/api/cameras/" + id)
+    .then(camera => {
+        /**
+         * Si l'ID du produit demandé n'existe pas dans la BDD, une erreur est lancée
+         */
+        if (Object.keys(camera).length === 0 && camera.constructor === Object) {
+            throw "Le produit demandé est introuvable";
         }
-        // Test si l'id existe dans la BDD
-        if (ids.includes(id)) {
-            // Produit existe
-            request.getJson("/api/cameras/" + id)
-                .then(camera => {
-                    // Afficher le produit
-                    let targetDiv = document.getElementById('product');
-                    const build = new BuildHtml();
-                    build.productDescription(camera, targetDiv);
-                    // Changer titre, description & meta sociaux de la page :
-                    build.changeHeadMetas(
-                        camera.name + " - Le meilleur de la photo vintage : Oricam",
-                        "Découvrez l'appareil photo vintage " + camera.name + ", spécialement pensé pour les passionnés des négatifs argentiques et de la chambre noire.",
-                        url_string,
-                        camera.imageUrl
-                        )
-                })
-                .then(() => {
-                    // Ajout au panier
-                    let addToCartButton = document.querySelector(".btn-cart");
-                    addToCartButton.addEventListener('click', function(event) {
-                        event.preventDefault();
-                        const id = document.getElementById("id").value;
-                        const lense = document.getElementById("lense").value;
-                        const quantity = document.getElementById("quantity").value;
-                        try {
-                            const validation = new Validation();
-                            validation.checkOptions(lense, quantity);
-                            
-                            const cart = new Cart();
-                            cart.add(id, lense, quantity);
-                        } catch (error) {
-                            alert(error);
-                        }
-                        
-                    })
-                })
-        } else {
-            // Produit inexistant        
-            let targetDiv = document.getElementById('product');
-            const build = new BuildHtml();
-            const errorDiv = build.errorMessage("Désolé, ce produit est introuvable...")
-            targetDiv.appendChild(errorDiv);
-        }
-        
-        
+        /**
+         * Si le produit existe dans la BDD :
+         */
+        // Afficher le produit
+        const targetDiv = document.getElementById('product');
+        const build = new BuildHtml();
+        build.productDescription(camera, targetDiv);
+        // Changer titre, description & meta sociaux de la page :
+        build.changeHeadMetas(
+            camera.name + " - Le meilleur de la photo vintage : Oricam",
+            "Découvrez l'appareil photo vintage " + camera.name + ", spécialement pensé pour les passionnés des négatifs argentiques et de la chambre noire.",
+            url_string,
+            camera.imageUrl
+            );
+        // Gestion de l'évènement : Ajout du produit au panier
+        const addToCartButton = document.querySelector(".btn-cart");
+        addToCartButton.addEventListener('click', (event) => cart.add(event));
     })
-
-
-// Afficher le nombre de produits du panier dans le header
-const cart = new Cart();
-cart.displayNumberOfProductsInHeader();
+    .catch((error) => {
+        const targetDiv = document.getElementById('product');
+        const build = new BuildHtml();
+        const errorDiv = build.errorMessage(error)
+        targetDiv.appendChild(errorDiv);
+    })

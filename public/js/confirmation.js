@@ -1,19 +1,25 @@
-// Récupération de la commande du sessionStorage, et nettoyage!
+/**
+ * Récupération de la commande du sessionStorage
+ */
 const order = JSON.parse(sessionStorage.getItem('order'));
 sessionStorage.removeItem('order');
 
-// vider le panier et réaffichage du header
-localStorage.removeItem('cart');
+/**
+ * vider le panier et réaffichage du header
+ */
 const cart = new Cart();
+cart.deleteAll();
 cart.displayNumberOfProductsInHeader();
 
-// Affichage dynamique sur la page
-let title = document.getElementById("confirmation-title");
+/**
+ * Affichage du récapitulatif de la commande
+ */
+const title = document.getElementById("confirmation-title");
 title.textContent = "Merci pour votre commande, " + order.contact.firstName + " !";
 const totalPrice = order.products.reduce((sum, item) => sum += item.price, 0);
-let priceElt = document.getElementById("confirmation-price");
+const priceElt = document.getElementById("confirmation-price");
 priceElt.textContent = (totalPrice / 100) + "€";
-let orderIdElt = document.getElementById("confirmation-orderId");
+const orderIdElt = document.getElementById("confirmation-orderId");
 orderIdElt.textContent = order.orderId;
 
 

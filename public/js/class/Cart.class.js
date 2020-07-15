@@ -4,35 +4,42 @@
  */
 class Cart {
     /**
-     * Ajouter un produit au panier
-     * @param {String} id Id du produit à ajouter
-     * @param {String} lenseId Id de l'option du produit à ajouter
-     * @param {String} quantity Quantité du produit à ajouter
+     * Ajoute un produit au panier
+     * @param {Object} event Evènement déclenché lorsque le bouton d'ajout au panier est cliqué
      */
-    add(id, lenseId, quantity) {
+    add(event) {
+        event.preventDefault();
         const newItem = {
-            id: id,
-            lenseId: parseInt(lenseId),
-            quantity: parseInt(quantity)
+            id: document.getElementById("id").value,
+            lenseId: parseInt(document.getElementById("lense").value),
+            quantity: parseInt(document.getElementById("quantity").value)
         }
-        
+        /**
+         * Validation des infos entrées par l'utilisateur
+         */
+        try {
+            const validation = new Validation();
+            validation.checkOptions(newItem.lenseId, newItem.quantity);
+        } catch (error) {
+            alert(error);
+            return;
+        }
+        /**
+         * Ajout du produit : plusieurs cas possible
+         */
         let oldCart = JSON.parse(localStorage.getItem('cart'));
-
         if (!oldCart) {
             // SI le panier était vide
             let itemsList = [];
             itemsList.push(newItem);
             localStorage.setItem('cart', JSON.stringify(itemsList));
-
         } else {
             // SI il y a déjà qqch dans le panier
-            let filteredCart = oldCart.filter(item => item.id === newItem.id && item.lenseId === newItem.lenseId);
-
+            const filteredCart = oldCart.filter(item => item.id === newItem.id && item.lenseId === newItem.lenseId);
             if (filteredCart.length === 0) {
                 // SI on a ajouté un NOUVEL article = on ajoute l'article à la liste
                 oldCart.push(newItem);
                 localStorage.setItem('cart', JSON.stringify(oldCart));
-
             } else {
                 // SI on a ajouté un article déjà existant dans le panier = on incrémente la quantité
                 oldCart.map(item => {
@@ -51,11 +58,11 @@ class Cart {
      * Afficher le nombre de produits du panier dans le header de la page
      */
     displayNumberOfProductsInHeader() {
-        let cart = JSON.parse(localStorage.getItem('cart'));
-        let targetDiv = document.querySelector(".header--cart--counter");
+        const cart = JSON.parse(localStorage.getItem('cart'));
+        const targetDiv = document.querySelector(".header--cart--counter");
         if (cart) {
             // Si le panier n'est pas vide
-            let count = cart.reduce((sum, item) => sum += item.quantity, 0);
+            const count = cart.reduce((sum, item) => sum += item.quantity, 0);
             targetDiv.classList.remove("hidden");
             targetDiv.textContent = count;
         } else {
@@ -68,7 +75,7 @@ class Cart {
      * Affiche tous les produits du panier sur la page de finalisation de la commande
      */
     displayCart() {
-        let productsInCart = JSON.parse(localStorage.getItem('cart'));
+        const productsInCart = JSON.parse(localStorage.getItem('cart'));
         if (productsInCart) {
             // Si le panier n'est pas vide
             let productsToDisplay = [];
@@ -77,7 +84,7 @@ class Cart {
                 .then(camerasFromDatabase => {
                     for (const product of productsInCart) {
                         // Pour chaque item dans le panier, on cherche la caméra correspondante dans la base de données
-                        let matchingCamera = camerasFromDatabase.filter(camera => camera._id == product.id)[0];
+                        const matchingCamera = camerasFromDatabase.filter(camera => camera._id == product.id)[0];
                         // On ajoute les bonnes infos à afficher
                         productsToDisplay.push({
                             "id": product.id,
@@ -88,18 +95,25 @@ class Cart {
                             "price": matchingCamera.price
                         })
                     }
+                    // Construction du tableau html
                     const build = new BuildHtml();
                     build.cart(productsToDisplay);
                     // Ajout de l'event listener pour la suppression de 1 produit
-                    let deleteBtns = document.querySelectorAll("#cartTableBody td:last-child");
+                    const deleteBtns = document.querySelectorAll("#cartTableBody td:last-child");
                     for (const deleteBtn of deleteBtns) {
                         deleteBtn.addEventListener('click', function() {
                             const cart = new Cart();
                             cart.delete1Item(this);
                         });
                     }
-                    
-
+                    // Ajout de la liste des id qui sera envoyée pour la commande
+                    let idList = []
+                    for (const product of productsToDisplay) {
+                        for (let i = 0; i < product.quantity; i++) {
+                            idList.push(product.id) 
+                        }
+                    }
+                    build.addProductListToForm(idList);
                 })
             document.querySelector(".cart--btn__purchase").disabled = false;
 
@@ -115,9 +129,9 @@ class Cart {
      */
     delete1Item(deleteBtn) {
         // Récupération des infos :
-        let tr = deleteBtn.parentElement;
-        let idToDelete = tr.dataset.id;
-        let lenseIdToDelete = tr.dataset.lenseId;
+        const tr = deleteBtn.parentElement;
+        const idToDelete = tr.dataset.id;
+        const lenseIdToDelete = tr.dataset.lenseId;
         const productsInCart = JSON.parse(localStorage.getItem('cart'));
 
         // supression dans le panier
@@ -134,6 +148,12 @@ class Cart {
         this.displayCart();
         this.displayNumberOfProductsInHeader();
         
+    }
+    /**
+     * Supprimer tous les articles du panier
+     */
+    deleteAll() {
+        localStorage.removeItem('cart');
     }
 
 }

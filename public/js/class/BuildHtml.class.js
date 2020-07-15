@@ -11,23 +11,23 @@ class BuildHtml {
      */
     homeCard(camera) {
         // card's text
-        let div = document.createElement("div");
+        const div = document.createElement("div");
         div.classList.add("products-list--content");
-        let h3 = document.createElement("h3");
+        const h3 = document.createElement("h3");
         h3.textContent = camera.name;
-        let p1 = document.createElement("p");
+        const p1 = document.createElement("p");
         p1.classList.add("products-list--price");
         p1.textContent = (camera.price / 100) + " €";
-        let p2 = document.createElement("p");
+        const p2 = document.createElement("p");
         p2.classList.add("products-list--link");
         p2.textContent = "Voir le produit";
         // card's image
-        let img = document.createElement("img");
+        const img = document.createElement("img");
         img.classList.add("products-list--image");
         img.setAttribute("src", camera.imageUrl);
         img.setAttribute("alt", "Photo de : " + camera.name);
         // card
-        let card = document.createElement("a");
+        const card = document.createElement("a");
         card.classList.add("products-list--card");
         card.setAttribute("href", "/product.html?id=" + camera._id)
         // combine the elements & return
@@ -47,14 +47,14 @@ class BuildHtml {
      */
     errorMessage(message = "Une erreur s'est produite") {
         // image
-        let img = document.createElement("img");
+        const img = document.createElement("img");
         img.setAttribute("src", "./img/error.png");
         img.setAttribute("alt", "Illustration d'un petit panda triste qui fait tomber la glace de son cornet");
         // message
-        let msg = document.createElement("p");
+        const msg = document.createElement("p");
         msg.textContent = message;
         // div container
-        let div = document.createElement("div");
+        const div = document.createElement("div");
         div.classList.add("error");
         // combine elements & return
         div.appendChild(img);
@@ -69,26 +69,26 @@ class BuildHtml {
      */
     productDescription(camera, targetDiv) {
         // Create image
-        let image = document.createElement("img");
+        const image = document.createElement("img");
         image.classList.add("product--image");
         image.setAttribute("src", camera.imageUrl);
         image.setAttribute("alt", "Photo de : " + camera.name);
         // Create title, description, and price
-        let title = document.createElement("h1");
+        const title = document.createElement("h1");
         title.classList.add("product--title");
         title.textContent = camera.name;
-        let description = document.createElement("p");
+        const description = document.createElement("p");
         description.classList.add("product--description");
         description.textContent = camera.description;
-        let price = document.createElement("p");
+        const price = document.createElement("p");
         price.classList.add("product--price");
         price.textContent = (camera.price / 100) + " €";
         // Create form
             // Lense
-        let lenseLabel = document.createElement("label");
+        const lenseLabel = document.createElement("label");
         lenseLabel.setAttribute("for", "lense");
         lenseLabel.textContent = "Objectif";
-        let lenseSelect = document.createElement("select");
+        const lenseSelect = document.createElement("select");
         lenseSelect.setAttribute("name", "lense");
         lenseSelect.setAttribute("id", "lense");
         for (const i in camera.lenses) {
@@ -97,53 +97,53 @@ class BuildHtml {
             option.textContent = camera.lenses[i];
             lenseSelect.appendChild(option);
         }
-        let lenseFieldset = document.createElement("p");
+        const lenseFieldset = document.createElement("p");
         lenseFieldset.appendChild(lenseLabel);
         lenseFieldset.appendChild(lenseSelect);
             // Quantity
-        let qttLabel = document.createElement("label");
+        const qttLabel = document.createElement("label");
         qttLabel.setAttribute("for", "quantity");
         qttLabel.textContent = "Quantité";
-        let qttInput = document.createElement("input");
+        const qttInput = document.createElement("input");
         qttInput.setAttribute("type", "number");
         qttInput.setAttribute("name", "quantity");
         qttInput.setAttribute("id", "quantity");
         qttInput.setAttribute("min", "1");
         qttInput.setAttribute("max", "10");
         qttInput.setAttribute("value", "1");
-        let qttFieldset = document.createElement("p");
+        const qttFieldset = document.createElement("p");
         qttFieldset.appendChild(qttLabel);
         qttFieldset.appendChild(qttInput);
             // Hidden input for id
-        let idInput = document.createElement("input");
+        const idInput = document.createElement("input");
         idInput.setAttribute("type", "hidden");
         idInput.setAttribute("name", "id");
         idInput.setAttribute("id", "id");
         idInput.setAttribute("value", camera._id);
             // Buttons
-        let cartButton = document.createElement("button");
+        const cartButton = document.createElement("button");
         cartButton.classList.add("btn");
         cartButton.classList.add("btn-cart");
         cartButton.setAttribute("type", "submit");
         cartButton.textContent = "Ajouter au panier";
-        let homeButton = document.createElement("a");
+        const homeButton = document.createElement("a");
         homeButton.classList.add("btn");
         homeButton.classList.add("btn-back");
         homeButton.setAttribute("href", "/");
         homeButton.textContent = "Retour à l'accueil";
-        let divButtons = document.createElement("div");
+        const divButtons = document.createElement("div");
         divButtons.classList.add("product--form--buttons");
         divButtons.appendChild(cartButton);
         divButtons.appendChild(homeButton);
             // Form
-        let form = document.createElement("form");
+        const form = document.createElement("form");
         form.classList.add("product--form");
         form.appendChild(lenseFieldset);
         form.appendChild(qttFieldset);
         form.appendChild(idInput);
         form.appendChild(divButtons);
         // Create div Container
-        let container = document.createElement("div");
+        const container = document.createElement("div");
         container.classList.add("container");
         container.appendChild(title);
         container.appendChild(description);
@@ -172,8 +172,7 @@ class BuildHtml {
     }
 
     /**
-     * Crée le tableau de produits présents dans le panier
-     * Doit ensuite être intégré dans la page panier
+     * Crée le tableau de produits présents dans le panier, sur la page de finalisation de la commande
      * @param {Array} products Tableau d'objets chacun représentant un produit à afficher {id, name, lenseId, lenseName, quantity, price}
      */
     cart(products) {
@@ -184,24 +183,24 @@ class BuildHtml {
             // Id
             listOfIds.push(product.id)
             // name
-            let nameCell = document.createElement('td');
+            const nameCell = document.createElement('td');
             nameCell.textContent = product.name;
             // lense
-            let lenseCell = document.createElement('td');
+            const lenseCell = document.createElement('td');
             lenseCell.textContent = product.lenseName;
             // Quantity
-            let quantityCell = document.createElement('td');
+            const quantityCell = document.createElement('td');
             quantityCell.textContent = product.quantity;
             // Price
-            let priceOfLine = (product.price * product.quantity) / 100;
-            let priceCell = document.createElement('td');
+            const priceOfLine = (product.price * product.quantity) / 100;
+            const priceCell = document.createElement('td');
             priceCell.textContent = priceOfLine + " €";
             totalPrice += priceOfLine;
             // Delete btn
-            let deleteCell = document.createElement('td');
+            const deleteCell = document.createElement('td');
             deleteCell.innerHTML = '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/></svg>';
             // ligne html et intégration dans le document
-            let tr = document.createElement('tr');
+            const tr = document.createElement('tr');
             tr.appendChild(nameCell);
             tr.appendChild(lenseCell);
             tr.appendChild(quantityCell);
@@ -209,14 +208,19 @@ class BuildHtml {
             tr.appendChild(deleteCell);
             tr.dataset.id = product.id;
             tr.dataset.lenseId = product.lenseId;
-            let tbody = document.getElementById("cartTableBody");
+            const tbody = document.getElementById("cartTableBody");
             tbody.appendChild(tr);
         }
         // Ajout du prix total
-        let totalPriceCell = document.getElementById("cartTableTotalPrice");
+        const totalPriceCell = document.getElementById("cartTableTotalPrice");
         totalPriceCell.textContent = totalPrice + " €";
-        // Ajout de la liste des ID au formulaire
-        let listOfIdsCell = document.getElementById("products");
-        listOfIdsCell.value = JSON.stringify(listOfIds);
+    }
+    /**
+     * Permet d'ajouter la liste des id des produits du panier dans un champ du formulaire, sur la page de finalisation de la commande
+     * @param {Array} idList Liste d'Id des caméras dans le panier
+     */
+    addProductListToForm(idList) {
+        const listOfIdsCell = document.getElementById("products");
+        listOfIdsCell.value = JSON.stringify(idList);
     }
 }
