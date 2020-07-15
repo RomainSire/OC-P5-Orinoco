@@ -26,7 +26,7 @@ class Cart {
 
         } else {
             // SI il y a déjà qqch dans le panier
-            let filteredCart = oldCart.filter(item => item.id === newItem.id && item.lenseId === newItem.lenseId);
+            const filteredCart = oldCart.filter(item => item.id === newItem.id && item.lenseId === newItem.lenseId);
 
             if (filteredCart.length === 0) {
                 // SI on a ajouté un NOUVEL article = on ajoute l'article à la liste
@@ -51,11 +51,11 @@ class Cart {
      * Afficher le nombre de produits du panier dans le header de la page
      */
     displayNumberOfProductsInHeader() {
-        let cart = JSON.parse(localStorage.getItem('cart'));
-        let targetDiv = document.querySelector(".header--cart--counter");
+        const cart = JSON.parse(localStorage.getItem('cart'));
+        const targetDiv = document.querySelector(".header--cart--counter");
         if (cart) {
             // Si le panier n'est pas vide
-            let count = cart.reduce((sum, item) => sum += item.quantity, 0);
+            const count = cart.reduce((sum, item) => sum += item.quantity, 0);
             targetDiv.classList.remove("hidden");
             targetDiv.textContent = count;
         } else {
@@ -68,7 +68,7 @@ class Cart {
      * Affiche tous les produits du panier sur la page de finalisation de la commande
      */
     displayCart() {
-        let productsInCart = JSON.parse(localStorage.getItem('cart'));
+        const productsInCart = JSON.parse(localStorage.getItem('cart'));
         if (productsInCart) {
             // Si le panier n'est pas vide
             let productsToDisplay = [];
@@ -77,7 +77,7 @@ class Cart {
                 .then(camerasFromDatabase => {
                     for (const product of productsInCart) {
                         // Pour chaque item dans le panier, on cherche la caméra correspondante dans la base de données
-                        let matchingCamera = camerasFromDatabase.filter(camera => camera._id == product.id)[0];
+                        const matchingCamera = camerasFromDatabase.filter(camera => camera._id == product.id)[0];
                         // On ajoute les bonnes infos à afficher
                         productsToDisplay.push({
                             "id": product.id,
@@ -91,7 +91,7 @@ class Cart {
                     const build = new BuildHtml();
                     build.cart(productsToDisplay);
                     // Ajout de l'event listener pour la suppression de 1 produit
-                    let deleteBtns = document.querySelectorAll("#cartTableBody td:last-child");
+                    const deleteBtns = document.querySelectorAll("#cartTableBody td:last-child");
                     for (const deleteBtn of deleteBtns) {
                         deleteBtn.addEventListener('click', function() {
                             const cart = new Cart();
@@ -115,9 +115,9 @@ class Cart {
      */
     delete1Item(deleteBtn) {
         // Récupération des infos :
-        let tr = deleteBtn.parentElement;
-        let idToDelete = tr.dataset.id;
-        let lenseIdToDelete = tr.dataset.lenseId;
+        const tr = deleteBtn.parentElement;
+        const idToDelete = tr.dataset.id;
+        const lenseIdToDelete = tr.dataset.lenseId;
         const productsInCart = JSON.parse(localStorage.getItem('cart'));
 
         // supression dans le panier

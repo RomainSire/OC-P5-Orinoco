@@ -18,7 +18,7 @@ request.getJson("/api/cameras/")
             request.getJson("/api/cameras/" + id)
                 .then(camera => {
                     // Afficher le produit
-                    let targetDiv = document.getElementById('product');
+                    const targetDiv = document.getElementById('product');
                     const build = new BuildHtml();
                     build.productDescription(camera, targetDiv);
                     // Changer titre, description & meta sociaux de la page :
@@ -31,7 +31,7 @@ request.getJson("/api/cameras/")
                 })
                 .then(() => {
                     // Ajout au panier
-                    let addToCartButton = document.querySelector(".btn-cart");
+                    const addToCartButton = document.querySelector(".btn-cart");
                     addToCartButton.addEventListener('click', function(event) {
                         event.preventDefault();
                         const id = document.getElementById("id").value;
@@ -51,7 +51,7 @@ request.getJson("/api/cameras/")
                 })
         } else {
             // Produit inexistant        
-            let targetDiv = document.getElementById('product');
+            const targetDiv = document.getElementById('product');
             const build = new BuildHtml();
             const errorDiv = build.errorMessage("Désolé, ce produit est introuvable...")
             targetDiv.appendChild(errorDiv);

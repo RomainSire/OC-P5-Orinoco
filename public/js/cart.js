@@ -21,14 +21,14 @@ const purchaseBtn = document.querySelector(".cart--btn__purchase");
 purchaseBtn.addEventListener('click', function(e) {
     e.preventDefault();
 
-    let contact = {
+    const contact = {
         "firstName": document.getElementById('firstname').value,
         "lastName": document.getElementById('lastname').value,
         "address": document.getElementById('address').value,
         "city": document.getElementById('city').value,
         "email": document.getElementById('email').value
     };
-    let products = JSON.parse(document.getElementById('products').value);
+    const products = JSON.parse(document.getElementById('products').value);
 
 
     const validation = new Validation();

@@ -8,12 +8,12 @@ const cart = new Cart();
 cart.displayNumberOfProductsInHeader();
 
 // Affichage dynamique sur la page
-let title = document.getElementById("confirmation-title");
+const title = document.getElementById("confirmation-title");
 title.textContent = "Merci pour votre commande, " + order.contact.firstName + " !";
 const totalPrice = order.products.reduce((sum, item) => sum += item.price, 0);
-let priceElt = document.getElementById("confirmation-price");
+const priceElt = document.getElementById("confirmation-price");
 priceElt.textContent = (totalPrice / 100) + "€";
-let orderIdElt = document.getElementById("confirmation-orderId");
+const orderIdElt = document.getElementById("confirmation-orderId");
 orderIdElt.textContent = order.orderId;
 
 

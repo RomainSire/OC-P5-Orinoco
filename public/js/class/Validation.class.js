@@ -20,7 +20,7 @@ class Validation {
         if (!contact.city) {
             throw "Merci de renseigner une ville";
         }
-        let email = contact.email.toLowerCase();
+        const email = contact.email.toLowerCase();
         const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!regex.test(email)) {
             throw "L'adresse e-mail est incorrecte";
