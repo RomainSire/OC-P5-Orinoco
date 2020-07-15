@@ -215,8 +215,13 @@ class BuildHtml {
         // Ajout du prix total
         const totalPriceCell = document.getElementById("cartTableTotalPrice");
         totalPriceCell.textContent = totalPrice + " €";
-        // Ajout de la liste des ID au formulaire
+    }
+    /**
+     * Permet d'ajouter la liste des id des produits du panier dans un champ caché du formulaire.
+     * @param {Array} idList Liste d'Id des caméras dans le panier
+     */
+    addProductListToForm(idList) {
         const listOfIdsCell = document.getElementById("products");
-        listOfIdsCell.value = JSON.stringify(listOfIds);
+        listOfIdsCell.value = JSON.stringify(idList);
     }
 }

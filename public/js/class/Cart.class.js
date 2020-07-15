@@ -88,6 +88,7 @@ class Cart {
                             "price": matchingCamera.price
                         })
                     }
+                    // Construction du tableau html
                     const build = new BuildHtml();
                     build.cart(productsToDisplay);
                     // Ajout de l'event listener pour la suppression de 1 produit
@@ -98,8 +99,14 @@ class Cart {
                             cart.delete1Item(this);
                         });
                     }
-                    
-
+                    // Ajout de la liste des id qui sera envoyée pour la commande
+                    let idList = []
+                    for (const product of productsToDisplay) {
+                        for (let i = 0; i < product.quantity; i++) {
+                            idList.push(product.id) 
+                        }
+                    }
+                    build.addProductListToForm(idList);
                 })
             document.querySelector(".cart--btn__purchase").disabled = false;
 
@@ -134,6 +141,12 @@ class Cart {
         this.displayCart();
         this.displayNumberOfProductsInHeader();
         
+    }
+    /**
+     * Supprimer tous les articles du panier
+     */
+    deleteAll() {
+        localStorage.removeItem('cart');
     }
 
 }
