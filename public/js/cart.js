@@ -45,6 +45,13 @@ purchaseBtn.addEventListener('click', (e) => {
                 sessionStorage.setItem('order', JSON.stringify(response));
                 document.location.href = "/confirmation.html"
             })
+            .catch(error => {
+                const build = new BuildHtml();
+                const errorDiv = build.errorMessage("Désolé, une erreur s'est produite... Veuillez réessayer plus tard.");
+                const targetDiv = document.getElementById('cart');
+                targetDiv.textContent = "";
+                targetDiv.appendChild(errorDiv);
+            })
     } catch (error) {
         // Si la validation n'est pas bonne (= pb de saisie de l'utilisateur), on affiche l'erreur à l'utilisateur
         window.alert(error);

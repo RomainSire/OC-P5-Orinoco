@@ -115,6 +115,13 @@ class Cart {
                     }
                     build.addProductListToForm(idList);
                 })
+                .catch(error => {
+                    const build = new BuildHtml();
+                    const errorDiv = build.errorMessage();
+                    const targetDiv = document.getElementById('cartTable');
+                    targetDiv.innerText = "";
+                    targetDiv.appendChild(errorDiv);
+                })
             document.querySelector(".cart--btn__purchase").disabled = false;
 
         } else {
