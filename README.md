@@ -29,4 +29,5 @@ Carte blanche est donnée au design de la maquette. Donc j'ai fait quelque chose
 ## Organisation des dossiers
 L'application backend est fournie par OpenClassrooms, à l'adresse : https://github.com/OpenClassrooms-Student-Center/JWDP5  
 L'ensemble de mon code frontend est regroupé dans le nouveau dossier "public".  
-Le fichier backend "app.js" a été modifié pour que ce dossier "public" soit accessible directement via localhost:3000
+Le fichier backend "app.js" a été modifié pour que ce dossier "public" soit accessible directement via localhost:3000  
+Le fichier de plan de test (Plan de tests.ods) est situé à la racine du repository. 
