@@ -82,7 +82,7 @@ class Cart {
             const request = new Request();
             request.getJson("/api/cameras/")
                 .then(camerasFromDatabase => {
-                    for (const product of productsInCart) {
+                    productsInCart.map(product => {
                         // Pour chaque item dans le panier, on cherche la caméra correspondante dans la base de données
                         const matchingCamera = camerasFromDatabase.filter(camera => camera._id == product.id)[0];
                         // On ajoute les bonnes infos à afficher
@@ -94,7 +94,7 @@ class Cart {
                             "quantity": product.quantity,
                             "price": matchingCamera.price
                         })
-                    }
+                    })
                     // Construction du tableau html
                     const build = new BuildHtml();
                     build.cart(productsToDisplay);
@@ -108,12 +108,19 @@ class Cart {
                     }
                     // Ajout de la liste des id qui sera envoyée pour la commande
                     let idList = []
-                    for (const product of productsToDisplay) {
+                    productsToDisplay.map(product => {
                         for (let i = 0; i < product.quantity; i++) {
                             idList.push(product.id) 
                         }
-                    }
+                    })
                     build.addProductListToForm(idList);
+                })
+                .catch(error => {
+                    const build = new BuildHtml();
+                    const errorDiv = build.errorMessage();
+                    const targetDiv = document.getElementById('cartTable');
+                    targetDiv.innerText = "";
+                    targetDiv.appendChild(errorDiv);
                 })
             document.querySelector(".cart--btn__purchase").disabled = false;
 

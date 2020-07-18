@@ -179,7 +179,7 @@ class BuildHtml {
         document.getElementById("cartTableBody").textContent = "";
         let totalPrice = 0;
         let listOfIds = [];
-        for (const product of products) {
+        products.map(product => {
             // Id
             listOfIds.push(product.id)
             // name
@@ -210,7 +210,7 @@ class BuildHtml {
             tr.dataset.lenseId = product.lenseId;
             const tbody = document.getElementById("cartTableBody");
             tbody.appendChild(tr);
-        }
+        })
         // Ajout du prix total
         const totalPriceCell = document.getElementById("cartTableTotalPrice");
         totalPriceCell.textContent = totalPrice + " €";
