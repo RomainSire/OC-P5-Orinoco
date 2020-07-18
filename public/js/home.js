@@ -12,12 +12,11 @@ const targetDiv = document.querySelector("#products-list > div");
 const request = new Request();
 request.getJson("/api/cameras")
     .then(cameras => {
-        // Pour chaque caméra récupérée, on crée une carte html, et on l'ajoute à la div cible :
-        cameras.reduce((acc, camera) => {
+        cameras.map(camera => {
             const build = new BuildHtml();
             const card = build.homeCard(camera);
             targetDiv.appendChild(card);
-        }, "");
+        })
     })
     .catch(error => {
         // Ajout du message d'erreur sur la page :
