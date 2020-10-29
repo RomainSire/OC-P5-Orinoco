@@ -13,6 +13,9 @@ L'objectif est développer en **JavaScript**, et **sans framework**, le **Front-
 L'entreprise fictive est Orinoco, qui crée des applications thématiques ne vendant qu'un seul type de produit. Entre les 3 thèmes qui étaient proposés, j'ai choisi la vente d'appareil photos vintage.  
 Carte blanche est donnée au design de la maquette. Donc j'ai fait quelque chose d'assez simple en utilisant sass, et surtout responsive.
 
+## Apperçu du rendu
+Voilà [une vidéo qui décrit rapidement le différentes fonctionnalités de l'application](https://youtu.be/k5JQiV9_muU)
+
 ## Objectifs du projet
 1. Développement Front-End en Javascript d'un site e-commerce.
     - Page d'accueil : liste tous les produits
